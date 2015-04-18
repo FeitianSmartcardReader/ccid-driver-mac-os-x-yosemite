@@ -1,0 +1,3 @@
+parse-strlcpy.o: strlcpy.c ../config.h
+
+../config.h:
