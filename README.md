@@ -7,6 +7,6 @@ Installation
    Apple and install libusb. Enter the following commands to install the
    driver.
 
-# ./MacOSX/configure
-# make
-# make install
+  # ./MacOSX/configure
+  # make
+  # make install
