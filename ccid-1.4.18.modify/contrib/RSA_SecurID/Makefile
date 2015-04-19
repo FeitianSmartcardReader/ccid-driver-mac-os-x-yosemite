@@ -169,18 +169,18 @@ am__define_uniq_tagged_files = \
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
-ACLOCAL = ${SHELL} /Users/Ben/Downloads/ccid-1.4.18/missing aclocal-1.14
+ACLOCAL = ${SHELL} /Users/Ben/Documents/sourcecode/ccid-1.4.18/missing aclocal-1.14
 AMTAR = $${TAR-tar}
 AM_DEFAULT_VERBOSITY = 0
 AR = ar
-AUTOCONF = ${SHELL} /Users/Ben/Downloads/ccid-1.4.18/missing autoconf
-AUTOHEADER = ${SHELL} /Users/Ben/Downloads/ccid-1.4.18/missing autoheader
-AUTOMAKE = ${SHELL} /Users/Ben/Downloads/ccid-1.4.18/missing automake-1.14
+AUTOCONF = ${SHELL} /Users/Ben/Documents/sourcecode/ccid-1.4.18/missing autoconf
+AUTOHEADER = ${SHELL} /Users/Ben/Documents/sourcecode/ccid-1.4.18/missing autoheader
+AUTOMAKE = ${SHELL} /Users/Ben/Documents/sourcecode/ccid-1.4.18/missing automake-1.14
 AWK = awk
 BUNDLE_HOST = MacOS
 CC = gcc
-CCDEPMODE = depmode=gcc3
-CFLAGS = -g -O2
+CCDEPMODE = depmode=none
+CFLAGS =  -DRESPONSECODE_DEFINED_IN_WINTYPES_H
 CPP = gcc -E
 CPPFLAGS = 
 CYGPATH_W = echo
@@ -212,12 +212,12 @@ LIBS =
 LIBTOOL = $(SHELL) $(top_builddir)/libtool
 LIBTOOL_DEPS = ./ltmain.sh
 LIBUSB_CFLAGS = -I/usr/local/include/libusb-1.0 
-LIBUSB_LIBS = -L/usr/local/lib -lusb-1.0 
+LIBUSB_LIBS = -L/usr/local/lib -lusb-1.0 -lobjc -Wl,-framework,IOKit -Wl,-framework,CoreFoundation 
 LIPO = lipo
 LN_S = ln -s
 LTLIBOBJS = 
 MAINT = #
-MAKEINFO = ${SHELL} /Users/Ben/Downloads/ccid-1.4.18/missing makeinfo
+MAKEINFO = ${SHELL} /Users/Ben/Documents/sourcecode/ccid-1.4.18/missing makeinfo
 MANIFEST_TOOL = :
 MKDIR_P = ../.././install-sh -c -d
 NM = /usr/bin/nm
@@ -235,8 +235,8 @@ PACKAGE_TARNAME = ccid
 PACKAGE_URL = 
 PACKAGE_VERSION = 1.4.18
 PATH_SEPARATOR = :
-PCSC_CFLAGS = -D_THREAD_SAFE -pthread -I/usr/local/include/PCSC 
-PCSC_LIBS = -L/usr/local/lib -lpcsclite 
+PCSC_CFLAGS = -I/Users/Ben/Documents/sourcecode/ccid-1.4.18/MacOSX
+PCSC_LIBS = -framework PCSC
 PKG_CONFIG = /usr/local/bin/pkg-config
 PKG_CONFIG_LIBDIR = 
 PKG_CONFIG_PATH = 
@@ -250,10 +250,10 @@ SHELL = /bin/sh
 STRIP = strip
 SYMBOL_VISIBILITY = -fvisibility=hidden
 VERSION = 1.4.18
-abs_builddir = /Users/Ben/Downloads/ccid-1.4.18/contrib/RSA_SecurID
-abs_srcdir = /Users/Ben/Downloads/ccid-1.4.18/contrib/RSA_SecurID
-abs_top_builddir = /Users/Ben/Downloads/ccid-1.4.18
-abs_top_srcdir = /Users/Ben/Downloads/ccid-1.4.18
+abs_builddir = /Users/Ben/Documents/sourcecode/ccid-1.4.18/contrib/RSA_SecurID
+abs_srcdir = /Users/Ben/Documents/sourcecode/ccid-1.4.18/contrib/RSA_SecurID
+abs_top_builddir = /Users/Ben/Documents/sourcecode/ccid-1.4.18
+abs_top_srcdir = /Users/Ben/Documents/sourcecode/ccid-1.4.18
 ac_aux_dir = .
 ac_ct_AR = ar
 ac_ct_CC = gcc
@@ -273,7 +273,7 @@ build_os = darwin14.1.0
 build_vendor = apple
 builddir = .
 bundle = ifd-ccid.bundle
-ccidtwindir = /usr/libexec/SmartCardServices/drivers//serial
+ccidtwindir = /usr/libexec/SmartCardServices/drivers/serial
 datadir = ${datarootdir}
 datarootdir = ${prefix}/share
 docdir = ${datarootdir}/doc/${PACKAGE_TARNAME}
@@ -287,7 +287,7 @@ host_vendor = apple
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /Users/Ben/Downloads/ccid-1.4.18/install-sh
+install_sh = ${SHELL} /Users/Ben/Documents/sourcecode/ccid-1.4.18/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -300,7 +300,7 @@ prefix = /usr/local
 program_transform_name = s,x,x,
 psdir = ${docdir}
 sbindir = ${exec_prefix}/sbin
-serialconfdir = /usr/local/etc/reader.conf.d
+serialconfdir = 
 sharedstatedir = ${prefix}/com
 srcdir = .
 sysconfdir = ${prefix}/etc
@@ -309,7 +309,7 @@ target_alias =
 top_build_prefix = ../../
 top_builddir = ../..
 top_srcdir = ../..
-usbdropdir = /usr/libexec/SmartCardServices/drivers/
+usbdropdir = /usr/libexec/SmartCardServices/drivers
 RSA_SecurID_getpasswd_SOURCES = RSA_SecurID_getpasswd.c
 RSA_SecurID_getpasswd_CFLAGS = $(PCSC_CFLAGS)
 RSA_SecurID_getpasswd_LDADD = $(PCSC_LIBS)
@@ -369,45 +369,45 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-include ./$(DEPDIR)/RSA_SecurID_getpasswd-RSA_SecurID_getpasswd.Po
+#include ./$(DEPDIR)/RSA_SecurID_getpasswd-RSA_SecurID_getpasswd.Po
 
 .c.o:
-	$(AM_V_CC)depbase=`echo $@ | sed 's|[^/]*$$|$(DEPDIR)/&|;s|\.o$$||'`;\
-	$(COMPILE) -MT $@ -MD -MP -MF $$depbase.Tpo -c -o $@ $< &&\
-	$(am__mv) $$depbase.Tpo $$depbase.Po
-#	$(AM_V_CC)source='$<' object='$@' libtool=no \
-#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(COMPILE) -c -o $@ $<
+#	$(AM_V_CC)depbase=`echo $@ | sed 's|[^/]*$$|$(DEPDIR)/&|;s|\.o$$||'`;\
+#	$(COMPILE) -MT $@ -MD -MP -MF $$depbase.Tpo -c -o $@ $< &&\
+#	$(am__mv) $$depbase.Tpo $$depbase.Po
+#	$(AM_V_CC)source='$<' object='$@' libtool=no 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(COMPILE) -c -o $@ $<
 
 .c.obj:
-	$(AM_V_CC)depbase=`echo $@ | sed 's|[^/]*$$|$(DEPDIR)/&|;s|\.obj$$||'`;\
-	$(COMPILE) -MT $@ -MD -MP -MF $$depbase.Tpo -c -o $@ `$(CYGPATH_W) '$<'` &&\
-	$(am__mv) $$depbase.Tpo $$depbase.Po
-#	$(AM_V_CC)source='$<' object='$@' libtool=no \
-#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(COMPILE) -c -o $@ `$(CYGPATH_W) '$<'`
+#	$(AM_V_CC)depbase=`echo $@ | sed 's|[^/]*$$|$(DEPDIR)/&|;s|\.obj$$||'`;\
+#	$(COMPILE) -MT $@ -MD -MP -MF $$depbase.Tpo -c -o $@ `$(CYGPATH_W) '$<'` &&\
+#	$(am__mv) $$depbase.Tpo $$depbase.Po
+#	$(AM_V_CC)source='$<' object='$@' libtool=no 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(COMPILE) -c -o $@ `$(CYGPATH_W) '$<'`
 
 .c.lo:
-	$(AM_V_CC)depbase=`echo $@ | sed 's|[^/]*$$|$(DEPDIR)/&|;s|\.lo$$||'`;\
-	$(LTCOMPILE) -MT $@ -MD -MP -MF $$depbase.Tpo -c -o $@ $< &&\
-	$(am__mv) $$depbase.Tpo $$depbase.Plo
-#	$(AM_V_CC)source='$<' object='$@' libtool=yes \
-#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(LTCOMPILE) -c -o $@ $<
+#	$(AM_V_CC)depbase=`echo $@ | sed 's|[^/]*$$|$(DEPDIR)/&|;s|\.lo$$||'`;\
+#	$(LTCOMPILE) -MT $@ -MD -MP -MF $$depbase.Tpo -c -o $@ $< &&\
+#	$(am__mv) $$depbase.Tpo $$depbase.Plo
+#	$(AM_V_CC)source='$<' object='$@' libtool=yes 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(LTCOMPILE) -c -o $@ $<
 
 RSA_SecurID_getpasswd-RSA_SecurID_getpasswd.o: RSA_SecurID_getpasswd.c
-	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(RSA_SecurID_getpasswd_CFLAGS) $(CFLAGS) -MT RSA_SecurID_getpasswd-RSA_SecurID_getpasswd.o -MD -MP -MF $(DEPDIR)/RSA_SecurID_getpasswd-RSA_SecurID_getpasswd.Tpo -c -o RSA_SecurID_getpasswd-RSA_SecurID_getpasswd.o `test -f 'RSA_SecurID_getpasswd.c' || echo '$(srcdir)/'`RSA_SecurID_getpasswd.c
-	$(AM_V_at)$(am__mv) $(DEPDIR)/RSA_SecurID_getpasswd-RSA_SecurID_getpasswd.Tpo $(DEPDIR)/RSA_SecurID_getpasswd-RSA_SecurID_getpasswd.Po
-#	$(AM_V_CC)source='RSA_SecurID_getpasswd.c' object='RSA_SecurID_getpasswd-RSA_SecurID_getpasswd.o' libtool=no \
-#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(RSA_SecurID_getpasswd_CFLAGS) $(CFLAGS) -c -o RSA_SecurID_getpasswd-RSA_SecurID_getpasswd.o `test -f 'RSA_SecurID_getpasswd.c' || echo '$(srcdir)/'`RSA_SecurID_getpasswd.c
+#	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(RSA_SecurID_getpasswd_CFLAGS) $(CFLAGS) -MT RSA_SecurID_getpasswd-RSA_SecurID_getpasswd.o -MD -MP -MF $(DEPDIR)/RSA_SecurID_getpasswd-RSA_SecurID_getpasswd.Tpo -c -o RSA_SecurID_getpasswd-RSA_SecurID_getpasswd.o `test -f 'RSA_SecurID_getpasswd.c' || echo '$(srcdir)/'`RSA_SecurID_getpasswd.c
+#	$(AM_V_at)$(am__mv) $(DEPDIR)/RSA_SecurID_getpasswd-RSA_SecurID_getpasswd.Tpo $(DEPDIR)/RSA_SecurID_getpasswd-RSA_SecurID_getpasswd.Po
+#	$(AM_V_CC)source='RSA_SecurID_getpasswd.c' object='RSA_SecurID_getpasswd-RSA_SecurID_getpasswd.o' libtool=no 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(RSA_SecurID_getpasswd_CFLAGS) $(CFLAGS) -c -o RSA_SecurID_getpasswd-RSA_SecurID_getpasswd.o `test -f 'RSA_SecurID_getpasswd.c' || echo '$(srcdir)/'`RSA_SecurID_getpasswd.c
 
 RSA_SecurID_getpasswd-RSA_SecurID_getpasswd.obj: RSA_SecurID_getpasswd.c
-	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(RSA_SecurID_getpasswd_CFLAGS) $(CFLAGS) -MT RSA_SecurID_getpasswd-RSA_SecurID_getpasswd.obj -MD -MP -MF $(DEPDIR)/RSA_SecurID_getpasswd-RSA_SecurID_getpasswd.Tpo -c -o RSA_SecurID_getpasswd-RSA_SecurID_getpasswd.obj `if test -f 'RSA_SecurID_getpasswd.c'; then $(CYGPATH_W) 'RSA_SecurID_getpasswd.c'; else $(CYGPATH_W) '$(srcdir)/RSA_SecurID_getpasswd.c'; fi`
-	$(AM_V_at)$(am__mv) $(DEPDIR)/RSA_SecurID_getpasswd-RSA_SecurID_getpasswd.Tpo $(DEPDIR)/RSA_SecurID_getpasswd-RSA_SecurID_getpasswd.Po
-#	$(AM_V_CC)source='RSA_SecurID_getpasswd.c' object='RSA_SecurID_getpasswd-RSA_SecurID_getpasswd.obj' libtool=no \
-#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(RSA_SecurID_getpasswd_CFLAGS) $(CFLAGS) -c -o RSA_SecurID_getpasswd-RSA_SecurID_getpasswd.obj `if test -f 'RSA_SecurID_getpasswd.c'; then $(CYGPATH_W) 'RSA_SecurID_getpasswd.c'; else $(CYGPATH_W) '$(srcdir)/RSA_SecurID_getpasswd.c'; fi`
+#	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(RSA_SecurID_getpasswd_CFLAGS) $(CFLAGS) -MT RSA_SecurID_getpasswd-RSA_SecurID_getpasswd.obj -MD -MP -MF $(DEPDIR)/RSA_SecurID_getpasswd-RSA_SecurID_getpasswd.Tpo -c -o RSA_SecurID_getpasswd-RSA_SecurID_getpasswd.obj `if test -f 'RSA_SecurID_getpasswd.c'; then $(CYGPATH_W) 'RSA_SecurID_getpasswd.c'; else $(CYGPATH_W) '$(srcdir)/RSA_SecurID_getpasswd.c'; fi`
+#	$(AM_V_at)$(am__mv) $(DEPDIR)/RSA_SecurID_getpasswd-RSA_SecurID_getpasswd.Tpo $(DEPDIR)/RSA_SecurID_getpasswd-RSA_SecurID_getpasswd.Po
+#	$(AM_V_CC)source='RSA_SecurID_getpasswd.c' object='RSA_SecurID_getpasswd-RSA_SecurID_getpasswd.obj' libtool=no 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(RSA_SecurID_getpasswd_CFLAGS) $(CFLAGS) -c -o RSA_SecurID_getpasswd-RSA_SecurID_getpasswd.obj `if test -f 'RSA_SecurID_getpasswd.c'; then $(CYGPATH_W) 'RSA_SecurID_getpasswd.c'; else $(CYGPATH_W) '$(srcdir)/RSA_SecurID_getpasswd.c'; fi`
 
 mostlyclean-libtool:
 	-rm -f *.lo

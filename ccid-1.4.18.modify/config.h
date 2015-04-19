@@ -111,7 +111,7 @@
 #define PACKAGE_VERSION "1.4.18"
 
 /* directory containing USB drivers */
-#define PCSCLITE_HP_DROPDIR "/usr/libexec/SmartCardServices/drivers/"
+#define PCSCLITE_HP_DROPDIR "/usr/libexec/SmartCardServices/drivers"
 
 /* Define to necessary symbol if this constant uses a non-standard name on
    your system. */

@@ -148,7 +148,7 @@ am__objects_1 = libccid_la-ccid.lo libccid_la-commands.lo \
 am__objects_2 = libccid_la-ccid_usb.lo
 am__objects_3 = libccid_la-tokenparser.lo libccid_la-strlcpy.lo \
 	libccid_la-simclist.lo
-#am__objects_4 = libccid_la-debug.lo
+am__objects_4 = libccid_la-debug.lo
 am__dirstamp = $(am__leading_dot)dirstamp
 am__objects_5 = towitoko/libccid_la-atr.lo towitoko/libccid_la-pps.lo \
 	openct/libccid_la-buffer.lo openct/libccid_la-checksum.lo \
@@ -178,7 +178,7 @@ am__objects_6 = libccidtwin_la-ccid.lo libccidtwin_la-commands.lo \
 am__objects_7 = libccidtwin_la-ccid_serial.lo
 am__objects_8 = libccidtwin_la-tokenparser.lo \
 	libccidtwin_la-strlcpy.lo libccidtwin_la-simclist.lo
-#am__objects_9 = libccidtwin_la-debug.lo
+am__objects_9 = libccidtwin_la-debug.lo
 am__objects_10 = towitoko/libccidtwin_la-atr.lo \
 	towitoko/libccidtwin_la-pps.lo openct/libccidtwin_la-buffer.lo \
 	openct/libccidtwin_la-checksum.lo \
@@ -273,18 +273,18 @@ am__define_uniq_tagged_files = \
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
-ACLOCAL = ${SHELL} /Users/Ben/Downloads/ccid-1.4.18/missing aclocal-1.14
+ACLOCAL = ${SHELL} /Users/Ben/Documents/sourcecode/ccid-1.4.18/missing aclocal-1.14
 AMTAR = $${TAR-tar}
 AM_DEFAULT_VERBOSITY = 0
 AR = ar
-AUTOCONF = ${SHELL} /Users/Ben/Downloads/ccid-1.4.18/missing autoconf
-AUTOHEADER = ${SHELL} /Users/Ben/Downloads/ccid-1.4.18/missing autoheader
-AUTOMAKE = ${SHELL} /Users/Ben/Downloads/ccid-1.4.18/missing automake-1.14
+AUTOCONF = ${SHELL} /Users/Ben/Documents/sourcecode/ccid-1.4.18/missing autoconf
+AUTOHEADER = ${SHELL} /Users/Ben/Documents/sourcecode/ccid-1.4.18/missing autoheader
+AUTOMAKE = ${SHELL} /Users/Ben/Documents/sourcecode/ccid-1.4.18/missing automake-1.14
 AWK = awk
 BUNDLE_HOST = MacOS
 CC = gcc
-CCDEPMODE = depmode=gcc3
-CFLAGS = -g -O2
+CCDEPMODE = depmode=none
+CFLAGS =  -DRESPONSECODE_DEFINED_IN_WINTYPES_H
 CPP = gcc -E
 CPPFLAGS = 
 CYGPATH_W = echo
@@ -316,12 +316,12 @@ LIBS =
 LIBTOOL = $(SHELL) $(top_builddir)/libtool
 LIBTOOL_DEPS = ./ltmain.sh
 LIBUSB_CFLAGS = -I/usr/local/include/libusb-1.0 
-LIBUSB_LIBS = -L/usr/local/lib -lusb-1.0 
+LIBUSB_LIBS = -L/usr/local/lib -lusb-1.0 -lobjc -Wl,-framework,IOKit -Wl,-framework,CoreFoundation 
 LIPO = lipo
 LN_S = ln -s
 LTLIBOBJS = 
 MAINT = #
-MAKEINFO = ${SHELL} /Users/Ben/Downloads/ccid-1.4.18/missing makeinfo
+MAKEINFO = ${SHELL} /Users/Ben/Documents/sourcecode/ccid-1.4.18/missing makeinfo
 MANIFEST_TOOL = :
 MKDIR_P = .././install-sh -c -d
 NM = /usr/bin/nm
@@ -339,8 +339,8 @@ PACKAGE_TARNAME = ccid
 PACKAGE_URL = 
 PACKAGE_VERSION = 1.4.18
 PATH_SEPARATOR = :
-PCSC_CFLAGS = -D_THREAD_SAFE -pthread -I/usr/local/include/PCSC 
-PCSC_LIBS = -L/usr/local/lib -lpcsclite 
+PCSC_CFLAGS = -I/Users/Ben/Documents/sourcecode/ccid-1.4.18/MacOSX
+PCSC_LIBS = -framework PCSC
 PKG_CONFIG = /usr/local/bin/pkg-config
 PKG_CONFIG_LIBDIR = 
 PKG_CONFIG_PATH = 
@@ -354,10 +354,10 @@ SHELL = /bin/sh
 STRIP = strip
 SYMBOL_VISIBILITY = -fvisibility=hidden
 VERSION = 1.4.18
-abs_builddir = /Users/Ben/Downloads/ccid-1.4.18/src
-abs_srcdir = /Users/Ben/Downloads/ccid-1.4.18/src
-abs_top_builddir = /Users/Ben/Downloads/ccid-1.4.18
-abs_top_srcdir = /Users/Ben/Downloads/ccid-1.4.18
+abs_builddir = /Users/Ben/Documents/sourcecode/ccid-1.4.18/src
+abs_srcdir = /Users/Ben/Documents/sourcecode/ccid-1.4.18/src
+abs_top_builddir = /Users/Ben/Documents/sourcecode/ccid-1.4.18
+abs_top_srcdir = /Users/Ben/Documents/sourcecode/ccid-1.4.18
 ac_aux_dir = .
 ac_ct_AR = ar
 ac_ct_CC = gcc
@@ -377,7 +377,7 @@ build_os = darwin14.1.0
 build_vendor = apple
 builddir = .
 bundle = ifd-ccid.bundle
-ccidtwindir = /usr/libexec/SmartCardServices/drivers//serial
+ccidtwindir = /usr/libexec/SmartCardServices/drivers/serial
 datadir = ${datarootdir}
 datarootdir = ${prefix}/share
 docdir = ${datarootdir}/doc/${PACKAGE_TARNAME}
@@ -391,7 +391,7 @@ host_vendor = apple
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /Users/Ben/Downloads/ccid-1.4.18/install-sh
+install_sh = ${SHELL} /Users/Ben/Documents/sourcecode/ccid-1.4.18/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -404,7 +404,7 @@ prefix = /usr/local
 program_transform_name = s,x,x,
 psdir = ${docdir}
 sbindir = ${exec_prefix}/sbin
-serialconfdir = /usr/local/etc/reader.conf.d
+serialconfdir = 
 sharedstatedir = ${prefix}/com
 srcdir = .
 sysconfdir = ${prefix}/etc
@@ -413,7 +413,7 @@ target_alias =
 top_build_prefix = ../
 top_builddir = ..
 top_srcdir = ..
-usbdropdir = /usr/libexec/SmartCardServices/drivers/
+usbdropdir = /usr/libexec/SmartCardServices/drivers
 CCID_BUNDLE = $(bundle)
 CCID_LIB = libccid.$(DYN_LIB_EXT)
 CCIDTWIN_LIB = libccidtwin.$(DYN_LIB_EXT)
@@ -453,7 +453,7 @@ TOKEN_PARSER = tokenparser.l parser.h \
 	simclist.c \
 	simclist.h
 
-#PROVIDED_BY_PCSC = debug.c
+PROVIDED_BY_PCSC = debug.c
 libccid_la_SOURCES = $(COMMON) $(USB) $(TOKEN_PARSER) $(PROVIDED_BY_PCSC) $(T1)
 libccid_la_LIBADD = $(LEXLIB) $(LIBUSB_LIBS) $(PTHREAD_LIBS)
 libccid_la_CFLAGS = $(PCSC_CFLAGS) $(LIBUSB_CFLAGS) $(PTHREAD_CFLAGS) \
@@ -608,344 +608,344 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-include ./$(DEPDIR)/libccid_la-ccid.Plo
-include ./$(DEPDIR)/libccid_la-ccid_usb.Plo
-include ./$(DEPDIR)/libccid_la-commands.Plo
-include ./$(DEPDIR)/libccid_la-debug.Plo
-include ./$(DEPDIR)/libccid_la-ifdhandler.Plo
-include ./$(DEPDIR)/libccid_la-simclist.Plo
-include ./$(DEPDIR)/libccid_la-strlcpy.Plo
-include ./$(DEPDIR)/libccid_la-tokenparser.Plo
-include ./$(DEPDIR)/libccid_la-utils.Plo
-include ./$(DEPDIR)/libccidtwin_la-ccid.Plo
-include ./$(DEPDIR)/libccidtwin_la-ccid_serial.Plo
-include ./$(DEPDIR)/libccidtwin_la-commands.Plo
-include ./$(DEPDIR)/libccidtwin_la-debug.Plo
-include ./$(DEPDIR)/libccidtwin_la-ifdhandler.Plo
-include ./$(DEPDIR)/libccidtwin_la-simclist.Plo
-include ./$(DEPDIR)/libccidtwin_la-strlcpy.Plo
-include ./$(DEPDIR)/libccidtwin_la-tokenparser.Plo
-include ./$(DEPDIR)/libccidtwin_la-utils.Plo
-include ./$(DEPDIR)/parse-ccid_usb.Po
-include ./$(DEPDIR)/parse-debug.Po
-include ./$(DEPDIR)/parse-parse.Po
-include ./$(DEPDIR)/parse-simclist.Po
-include ./$(DEPDIR)/parse-strlcpy.Po
-include ./$(DEPDIR)/parse-tokenparser.Po
-include openct/$(DEPDIR)/libccid_la-buffer.Plo
-include openct/$(DEPDIR)/libccid_la-checksum.Plo
-include openct/$(DEPDIR)/libccid_la-proto-t1.Plo
-include openct/$(DEPDIR)/libccidtwin_la-buffer.Plo
-include openct/$(DEPDIR)/libccidtwin_la-checksum.Plo
-include openct/$(DEPDIR)/libccidtwin_la-proto-t1.Plo
-include towitoko/$(DEPDIR)/libccid_la-atr.Plo
-include towitoko/$(DEPDIR)/libccid_la-pps.Plo
-include towitoko/$(DEPDIR)/libccidtwin_la-atr.Plo
-include towitoko/$(DEPDIR)/libccidtwin_la-pps.Plo
+#include ./$(DEPDIR)/libccid_la-ccid.Plo
+#include ./$(DEPDIR)/libccid_la-ccid_usb.Plo
+#include ./$(DEPDIR)/libccid_la-commands.Plo
+#include ./$(DEPDIR)/libccid_la-debug.Plo
+#include ./$(DEPDIR)/libccid_la-ifdhandler.Plo
+#include ./$(DEPDIR)/libccid_la-simclist.Plo
+#include ./$(DEPDIR)/libccid_la-strlcpy.Plo
+#include ./$(DEPDIR)/libccid_la-tokenparser.Plo
+#include ./$(DEPDIR)/libccid_la-utils.Plo
+#include ./$(DEPDIR)/libccidtwin_la-ccid.Plo
+#include ./$(DEPDIR)/libccidtwin_la-ccid_serial.Plo
+#include ./$(DEPDIR)/libccidtwin_la-commands.Plo
+#include ./$(DEPDIR)/libccidtwin_la-debug.Plo
+#include ./$(DEPDIR)/libccidtwin_la-ifdhandler.Plo
+#include ./$(DEPDIR)/libccidtwin_la-simclist.Plo
+#include ./$(DEPDIR)/libccidtwin_la-strlcpy.Plo
+#include ./$(DEPDIR)/libccidtwin_la-tokenparser.Plo
+#include ./$(DEPDIR)/libccidtwin_la-utils.Plo
+#include ./$(DEPDIR)/parse-ccid_usb.Po
+#include ./$(DEPDIR)/parse-debug.Po
+#include ./$(DEPDIR)/parse-parse.Po
+#include ./$(DEPDIR)/parse-simclist.Po
+#include ./$(DEPDIR)/parse-strlcpy.Po
+#include ./$(DEPDIR)/parse-tokenparser.Po
+#include openct/$(DEPDIR)/libccid_la-buffer.Plo
+#include openct/$(DEPDIR)/libccid_la-checksum.Plo
+#include openct/$(DEPDIR)/libccid_la-proto-t1.Plo
+#include openct/$(DEPDIR)/libccidtwin_la-buffer.Plo
+#include openct/$(DEPDIR)/libccidtwin_la-checksum.Plo
+#include openct/$(DEPDIR)/libccidtwin_la-proto-t1.Plo
+#include towitoko/$(DEPDIR)/libccid_la-atr.Plo
+#include towitoko/$(DEPDIR)/libccid_la-pps.Plo
+#include towitoko/$(DEPDIR)/libccidtwin_la-atr.Plo
+#include towitoko/$(DEPDIR)/libccidtwin_la-pps.Plo
 
 .c.o:
-	$(AM_V_CC)depbase=`echo $@ | sed 's|[^/]*$$|$(DEPDIR)/&|;s|\.o$$||'`;\
-	$(COMPILE) -MT $@ -MD -MP -MF $$depbase.Tpo -c -o $@ $< &&\
-	$(am__mv) $$depbase.Tpo $$depbase.Po
-#	$(AM_V_CC)source='$<' object='$@' libtool=no \
-#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(COMPILE) -c -o $@ $<
+#	$(AM_V_CC)depbase=`echo $@ | sed 's|[^/]*$$|$(DEPDIR)/&|;s|\.o$$||'`;\
+#	$(COMPILE) -MT $@ -MD -MP -MF $$depbase.Tpo -c -o $@ $< &&\
+#	$(am__mv) $$depbase.Tpo $$depbase.Po
+#	$(AM_V_CC)source='$<' object='$@' libtool=no 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(COMPILE) -c -o $@ $<
 
 .c.obj:
-	$(AM_V_CC)depbase=`echo $@ | sed 's|[^/]*$$|$(DEPDIR)/&|;s|\.obj$$||'`;\
-	$(COMPILE) -MT $@ -MD -MP -MF $$depbase.Tpo -c -o $@ `$(CYGPATH_W) '$<'` &&\
-	$(am__mv) $$depbase.Tpo $$depbase.Po
-#	$(AM_V_CC)source='$<' object='$@' libtool=no \
-#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(COMPILE) -c -o $@ `$(CYGPATH_W) '$<'`
+#	$(AM_V_CC)depbase=`echo $@ | sed 's|[^/]*$$|$(DEPDIR)/&|;s|\.obj$$||'`;\
+#	$(COMPILE) -MT $@ -MD -MP -MF $$depbase.Tpo -c -o $@ `$(CYGPATH_W) '$<'` &&\
+#	$(am__mv) $$depbase.Tpo $$depbase.Po
+#	$(AM_V_CC)source='$<' object='$@' libtool=no 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(COMPILE) -c -o $@ `$(CYGPATH_W) '$<'`
 
 .c.lo:
-	$(AM_V_CC)depbase=`echo $@ | sed 's|[^/]*$$|$(DEPDIR)/&|;s|\.lo$$||'`;\
-	$(LTCOMPILE) -MT $@ -MD -MP -MF $$depbase.Tpo -c -o $@ $< &&\
-	$(am__mv) $$depbase.Tpo $$depbase.Plo
-#	$(AM_V_CC)source='$<' object='$@' libtool=yes \
-#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(LTCOMPILE) -c -o $@ $<
+#	$(AM_V_CC)depbase=`echo $@ | sed 's|[^/]*$$|$(DEPDIR)/&|;s|\.lo$$||'`;\
+#	$(LTCOMPILE) -MT $@ -MD -MP -MF $$depbase.Tpo -c -o $@ $< &&\
+#	$(am__mv) $$depbase.Tpo $$depbase.Plo
+#	$(AM_V_CC)source='$<' object='$@' libtool=yes 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(LTCOMPILE) -c -o $@ $<
 
 libccid_la-ccid.lo: ccid.c
-	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccid_la_CFLAGS) $(CFLAGS) -MT libccid_la-ccid.lo -MD -MP -MF $(DEPDIR)/libccid_la-ccid.Tpo -c -o libccid_la-ccid.lo `test -f 'ccid.c' || echo '$(srcdir)/'`ccid.c
-	$(AM_V_at)$(am__mv) $(DEPDIR)/libccid_la-ccid.Tpo $(DEPDIR)/libccid_la-ccid.Plo
-#	$(AM_V_CC)source='ccid.c' object='libccid_la-ccid.lo' libtool=yes \
-#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccid_la_CFLAGS) $(CFLAGS) -c -o libccid_la-ccid.lo `test -f 'ccid.c' || echo '$(srcdir)/'`ccid.c
+#	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccid_la_CFLAGS) $(CFLAGS) -MT libccid_la-ccid.lo -MD -MP -MF $(DEPDIR)/libccid_la-ccid.Tpo -c -o libccid_la-ccid.lo `test -f 'ccid.c' || echo '$(srcdir)/'`ccid.c
+#	$(AM_V_at)$(am__mv) $(DEPDIR)/libccid_la-ccid.Tpo $(DEPDIR)/libccid_la-ccid.Plo
+#	$(AM_V_CC)source='ccid.c' object='libccid_la-ccid.lo' libtool=yes 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccid_la_CFLAGS) $(CFLAGS) -c -o libccid_la-ccid.lo `test -f 'ccid.c' || echo '$(srcdir)/'`ccid.c
 
 libccid_la-commands.lo: commands.c
-	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccid_la_CFLAGS) $(CFLAGS) -MT libccid_la-commands.lo -MD -MP -MF $(DEPDIR)/libccid_la-commands.Tpo -c -o libccid_la-commands.lo `test -f 'commands.c' || echo '$(srcdir)/'`commands.c
-	$(AM_V_at)$(am__mv) $(DEPDIR)/libccid_la-commands.Tpo $(DEPDIR)/libccid_la-commands.Plo
-#	$(AM_V_CC)source='commands.c' object='libccid_la-commands.lo' libtool=yes \
-#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccid_la_CFLAGS) $(CFLAGS) -c -o libccid_la-commands.lo `test -f 'commands.c' || echo '$(srcdir)/'`commands.c
+#	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccid_la_CFLAGS) $(CFLAGS) -MT libccid_la-commands.lo -MD -MP -MF $(DEPDIR)/libccid_la-commands.Tpo -c -o libccid_la-commands.lo `test -f 'commands.c' || echo '$(srcdir)/'`commands.c
+#	$(AM_V_at)$(am__mv) $(DEPDIR)/libccid_la-commands.Tpo $(DEPDIR)/libccid_la-commands.Plo
+#	$(AM_V_CC)source='commands.c' object='libccid_la-commands.lo' libtool=yes 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccid_la_CFLAGS) $(CFLAGS) -c -o libccid_la-commands.lo `test -f 'commands.c' || echo '$(srcdir)/'`commands.c
 
 libccid_la-ifdhandler.lo: ifdhandler.c
-	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccid_la_CFLAGS) $(CFLAGS) -MT libccid_la-ifdhandler.lo -MD -MP -MF $(DEPDIR)/libccid_la-ifdhandler.Tpo -c -o libccid_la-ifdhandler.lo `test -f 'ifdhandler.c' || echo '$(srcdir)/'`ifdhandler.c
-	$(AM_V_at)$(am__mv) $(DEPDIR)/libccid_la-ifdhandler.Tpo $(DEPDIR)/libccid_la-ifdhandler.Plo
-#	$(AM_V_CC)source='ifdhandler.c' object='libccid_la-ifdhandler.lo' libtool=yes \
-#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccid_la_CFLAGS) $(CFLAGS) -c -o libccid_la-ifdhandler.lo `test -f 'ifdhandler.c' || echo '$(srcdir)/'`ifdhandler.c
+#	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccid_la_CFLAGS) $(CFLAGS) -MT libccid_la-ifdhandler.lo -MD -MP -MF $(DEPDIR)/libccid_la-ifdhandler.Tpo -c -o libccid_la-ifdhandler.lo `test -f 'ifdhandler.c' || echo '$(srcdir)/'`ifdhandler.c
+#	$(AM_V_at)$(am__mv) $(DEPDIR)/libccid_la-ifdhandler.Tpo $(DEPDIR)/libccid_la-ifdhandler.Plo
+#	$(AM_V_CC)source='ifdhandler.c' object='libccid_la-ifdhandler.lo' libtool=yes 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccid_la_CFLAGS) $(CFLAGS) -c -o libccid_la-ifdhandler.lo `test -f 'ifdhandler.c' || echo '$(srcdir)/'`ifdhandler.c
 
 libccid_la-utils.lo: utils.c
-	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccid_la_CFLAGS) $(CFLAGS) -MT libccid_la-utils.lo -MD -MP -MF $(DEPDIR)/libccid_la-utils.Tpo -c -o libccid_la-utils.lo `test -f 'utils.c' || echo '$(srcdir)/'`utils.c
-	$(AM_V_at)$(am__mv) $(DEPDIR)/libccid_la-utils.Tpo $(DEPDIR)/libccid_la-utils.Plo
-#	$(AM_V_CC)source='utils.c' object='libccid_la-utils.lo' libtool=yes \
-#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccid_la_CFLAGS) $(CFLAGS) -c -o libccid_la-utils.lo `test -f 'utils.c' || echo '$(srcdir)/'`utils.c
+#	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccid_la_CFLAGS) $(CFLAGS) -MT libccid_la-utils.lo -MD -MP -MF $(DEPDIR)/libccid_la-utils.Tpo -c -o libccid_la-utils.lo `test -f 'utils.c' || echo '$(srcdir)/'`utils.c
+#	$(AM_V_at)$(am__mv) $(DEPDIR)/libccid_la-utils.Tpo $(DEPDIR)/libccid_la-utils.Plo
+#	$(AM_V_CC)source='utils.c' object='libccid_la-utils.lo' libtool=yes 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccid_la_CFLAGS) $(CFLAGS) -c -o libccid_la-utils.lo `test -f 'utils.c' || echo '$(srcdir)/'`utils.c
 
 libccid_la-ccid_usb.lo: ccid_usb.c
-	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccid_la_CFLAGS) $(CFLAGS) -MT libccid_la-ccid_usb.lo -MD -MP -MF $(DEPDIR)/libccid_la-ccid_usb.Tpo -c -o libccid_la-ccid_usb.lo `test -f 'ccid_usb.c' || echo '$(srcdir)/'`ccid_usb.c
-	$(AM_V_at)$(am__mv) $(DEPDIR)/libccid_la-ccid_usb.Tpo $(DEPDIR)/libccid_la-ccid_usb.Plo
-#	$(AM_V_CC)source='ccid_usb.c' object='libccid_la-ccid_usb.lo' libtool=yes \
-#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccid_la_CFLAGS) $(CFLAGS) -c -o libccid_la-ccid_usb.lo `test -f 'ccid_usb.c' || echo '$(srcdir)/'`ccid_usb.c
+#	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccid_la_CFLAGS) $(CFLAGS) -MT libccid_la-ccid_usb.lo -MD -MP -MF $(DEPDIR)/libccid_la-ccid_usb.Tpo -c -o libccid_la-ccid_usb.lo `test -f 'ccid_usb.c' || echo '$(srcdir)/'`ccid_usb.c
+#	$(AM_V_at)$(am__mv) $(DEPDIR)/libccid_la-ccid_usb.Tpo $(DEPDIR)/libccid_la-ccid_usb.Plo
+#	$(AM_V_CC)source='ccid_usb.c' object='libccid_la-ccid_usb.lo' libtool=yes 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccid_la_CFLAGS) $(CFLAGS) -c -o libccid_la-ccid_usb.lo `test -f 'ccid_usb.c' || echo '$(srcdir)/'`ccid_usb.c
 
 libccid_la-tokenparser.lo: tokenparser.c
-	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccid_la_CFLAGS) $(CFLAGS) -MT libccid_la-tokenparser.lo -MD -MP -MF $(DEPDIR)/libccid_la-tokenparser.Tpo -c -o libccid_la-tokenparser.lo `test -f 'tokenparser.c' || echo '$(srcdir)/'`tokenparser.c
-	$(AM_V_at)$(am__mv) $(DEPDIR)/libccid_la-tokenparser.Tpo $(DEPDIR)/libccid_la-tokenparser.Plo
-#	$(AM_V_CC)source='tokenparser.c' object='libccid_la-tokenparser.lo' libtool=yes \
-#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccid_la_CFLAGS) $(CFLAGS) -c -o libccid_la-tokenparser.lo `test -f 'tokenparser.c' || echo '$(srcdir)/'`tokenparser.c
+#	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccid_la_CFLAGS) $(CFLAGS) -MT libccid_la-tokenparser.lo -MD -MP -MF $(DEPDIR)/libccid_la-tokenparser.Tpo -c -o libccid_la-tokenparser.lo `test -f 'tokenparser.c' || echo '$(srcdir)/'`tokenparser.c
+#	$(AM_V_at)$(am__mv) $(DEPDIR)/libccid_la-tokenparser.Tpo $(DEPDIR)/libccid_la-tokenparser.Plo
+#	$(AM_V_CC)source='tokenparser.c' object='libccid_la-tokenparser.lo' libtool=yes 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccid_la_CFLAGS) $(CFLAGS) -c -o libccid_la-tokenparser.lo `test -f 'tokenparser.c' || echo '$(srcdir)/'`tokenparser.c
 
 libccid_la-strlcpy.lo: strlcpy.c
-	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccid_la_CFLAGS) $(CFLAGS) -MT libccid_la-strlcpy.lo -MD -MP -MF $(DEPDIR)/libccid_la-strlcpy.Tpo -c -o libccid_la-strlcpy.lo `test -f 'strlcpy.c' || echo '$(srcdir)/'`strlcpy.c
-	$(AM_V_at)$(am__mv) $(DEPDIR)/libccid_la-strlcpy.Tpo $(DEPDIR)/libccid_la-strlcpy.Plo
-#	$(AM_V_CC)source='strlcpy.c' object='libccid_la-strlcpy.lo' libtool=yes \
-#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccid_la_CFLAGS) $(CFLAGS) -c -o libccid_la-strlcpy.lo `test -f 'strlcpy.c' || echo '$(srcdir)/'`strlcpy.c
+#	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccid_la_CFLAGS) $(CFLAGS) -MT libccid_la-strlcpy.lo -MD -MP -MF $(DEPDIR)/libccid_la-strlcpy.Tpo -c -o libccid_la-strlcpy.lo `test -f 'strlcpy.c' || echo '$(srcdir)/'`strlcpy.c
+#	$(AM_V_at)$(am__mv) $(DEPDIR)/libccid_la-strlcpy.Tpo $(DEPDIR)/libccid_la-strlcpy.Plo
+#	$(AM_V_CC)source='strlcpy.c' object='libccid_la-strlcpy.lo' libtool=yes 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccid_la_CFLAGS) $(CFLAGS) -c -o libccid_la-strlcpy.lo `test -f 'strlcpy.c' || echo '$(srcdir)/'`strlcpy.c
 
 libccid_la-simclist.lo: simclist.c
-	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccid_la_CFLAGS) $(CFLAGS) -MT libccid_la-simclist.lo -MD -MP -MF $(DEPDIR)/libccid_la-simclist.Tpo -c -o libccid_la-simclist.lo `test -f 'simclist.c' || echo '$(srcdir)/'`simclist.c
-	$(AM_V_at)$(am__mv) $(DEPDIR)/libccid_la-simclist.Tpo $(DEPDIR)/libccid_la-simclist.Plo
-#	$(AM_V_CC)source='simclist.c' object='libccid_la-simclist.lo' libtool=yes \
-#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccid_la_CFLAGS) $(CFLAGS) -c -o libccid_la-simclist.lo `test -f 'simclist.c' || echo '$(srcdir)/'`simclist.c
+#	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccid_la_CFLAGS) $(CFLAGS) -MT libccid_la-simclist.lo -MD -MP -MF $(DEPDIR)/libccid_la-simclist.Tpo -c -o libccid_la-simclist.lo `test -f 'simclist.c' || echo '$(srcdir)/'`simclist.c
+#	$(AM_V_at)$(am__mv) $(DEPDIR)/libccid_la-simclist.Tpo $(DEPDIR)/libccid_la-simclist.Plo
+#	$(AM_V_CC)source='simclist.c' object='libccid_la-simclist.lo' libtool=yes 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccid_la_CFLAGS) $(CFLAGS) -c -o libccid_la-simclist.lo `test -f 'simclist.c' || echo '$(srcdir)/'`simclist.c
 
 libccid_la-debug.lo: debug.c
-	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccid_la_CFLAGS) $(CFLAGS) -MT libccid_la-debug.lo -MD -MP -MF $(DEPDIR)/libccid_la-debug.Tpo -c -o libccid_la-debug.lo `test -f 'debug.c' || echo '$(srcdir)/'`debug.c
-	$(AM_V_at)$(am__mv) $(DEPDIR)/libccid_la-debug.Tpo $(DEPDIR)/libccid_la-debug.Plo
-#	$(AM_V_CC)source='debug.c' object='libccid_la-debug.lo' libtool=yes \
-#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccid_la_CFLAGS) $(CFLAGS) -c -o libccid_la-debug.lo `test -f 'debug.c' || echo '$(srcdir)/'`debug.c
+#	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccid_la_CFLAGS) $(CFLAGS) -MT libccid_la-debug.lo -MD -MP -MF $(DEPDIR)/libccid_la-debug.Tpo -c -o libccid_la-debug.lo `test -f 'debug.c' || echo '$(srcdir)/'`debug.c
+#	$(AM_V_at)$(am__mv) $(DEPDIR)/libccid_la-debug.Tpo $(DEPDIR)/libccid_la-debug.Plo
+#	$(AM_V_CC)source='debug.c' object='libccid_la-debug.lo' libtool=yes 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccid_la_CFLAGS) $(CFLAGS) -c -o libccid_la-debug.lo `test -f 'debug.c' || echo '$(srcdir)/'`debug.c
 
 towitoko/libccid_la-atr.lo: towitoko/atr.c
-	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccid_la_CFLAGS) $(CFLAGS) -MT towitoko/libccid_la-atr.lo -MD -MP -MF towitoko/$(DEPDIR)/libccid_la-atr.Tpo -c -o towitoko/libccid_la-atr.lo `test -f 'towitoko/atr.c' || echo '$(srcdir)/'`towitoko/atr.c
-	$(AM_V_at)$(am__mv) towitoko/$(DEPDIR)/libccid_la-atr.Tpo towitoko/$(DEPDIR)/libccid_la-atr.Plo
-#	$(AM_V_CC)source='towitoko/atr.c' object='towitoko/libccid_la-atr.lo' libtool=yes \
-#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccid_la_CFLAGS) $(CFLAGS) -c -o towitoko/libccid_la-atr.lo `test -f 'towitoko/atr.c' || echo '$(srcdir)/'`towitoko/atr.c
+#	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccid_la_CFLAGS) $(CFLAGS) -MT towitoko/libccid_la-atr.lo -MD -MP -MF towitoko/$(DEPDIR)/libccid_la-atr.Tpo -c -o towitoko/libccid_la-atr.lo `test -f 'towitoko/atr.c' || echo '$(srcdir)/'`towitoko/atr.c
+#	$(AM_V_at)$(am__mv) towitoko/$(DEPDIR)/libccid_la-atr.Tpo towitoko/$(DEPDIR)/libccid_la-atr.Plo
+#	$(AM_V_CC)source='towitoko/atr.c' object='towitoko/libccid_la-atr.lo' libtool=yes 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccid_la_CFLAGS) $(CFLAGS) -c -o towitoko/libccid_la-atr.lo `test -f 'towitoko/atr.c' || echo '$(srcdir)/'`towitoko/atr.c
 
 towitoko/libccid_la-pps.lo: towitoko/pps.c
-	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccid_la_CFLAGS) $(CFLAGS) -MT towitoko/libccid_la-pps.lo -MD -MP -MF towitoko/$(DEPDIR)/libccid_la-pps.Tpo -c -o towitoko/libccid_la-pps.lo `test -f 'towitoko/pps.c' || echo '$(srcdir)/'`towitoko/pps.c
-	$(AM_V_at)$(am__mv) towitoko/$(DEPDIR)/libccid_la-pps.Tpo towitoko/$(DEPDIR)/libccid_la-pps.Plo
-#	$(AM_V_CC)source='towitoko/pps.c' object='towitoko/libccid_la-pps.lo' libtool=yes \
-#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccid_la_CFLAGS) $(CFLAGS) -c -o towitoko/libccid_la-pps.lo `test -f 'towitoko/pps.c' || echo '$(srcdir)/'`towitoko/pps.c
+#	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccid_la_CFLAGS) $(CFLAGS) -MT towitoko/libccid_la-pps.lo -MD -MP -MF towitoko/$(DEPDIR)/libccid_la-pps.Tpo -c -o towitoko/libccid_la-pps.lo `test -f 'towitoko/pps.c' || echo '$(srcdir)/'`towitoko/pps.c
+#	$(AM_V_at)$(am__mv) towitoko/$(DEPDIR)/libccid_la-pps.Tpo towitoko/$(DEPDIR)/libccid_la-pps.Plo
+#	$(AM_V_CC)source='towitoko/pps.c' object='towitoko/libccid_la-pps.lo' libtool=yes 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccid_la_CFLAGS) $(CFLAGS) -c -o towitoko/libccid_la-pps.lo `test -f 'towitoko/pps.c' || echo '$(srcdir)/'`towitoko/pps.c
 
 openct/libccid_la-buffer.lo: openct/buffer.c
-	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccid_la_CFLAGS) $(CFLAGS) -MT openct/libccid_la-buffer.lo -MD -MP -MF openct/$(DEPDIR)/libccid_la-buffer.Tpo -c -o openct/libccid_la-buffer.lo `test -f 'openct/buffer.c' || echo '$(srcdir)/'`openct/buffer.c
-	$(AM_V_at)$(am__mv) openct/$(DEPDIR)/libccid_la-buffer.Tpo openct/$(DEPDIR)/libccid_la-buffer.Plo
-#	$(AM_V_CC)source='openct/buffer.c' object='openct/libccid_la-buffer.lo' libtool=yes \
-#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccid_la_CFLAGS) $(CFLAGS) -c -o openct/libccid_la-buffer.lo `test -f 'openct/buffer.c' || echo '$(srcdir)/'`openct/buffer.c
+#	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccid_la_CFLAGS) $(CFLAGS) -MT openct/libccid_la-buffer.lo -MD -MP -MF openct/$(DEPDIR)/libccid_la-buffer.Tpo -c -o openct/libccid_la-buffer.lo `test -f 'openct/buffer.c' || echo '$(srcdir)/'`openct/buffer.c
+#	$(AM_V_at)$(am__mv) openct/$(DEPDIR)/libccid_la-buffer.Tpo openct/$(DEPDIR)/libccid_la-buffer.Plo
+#	$(AM_V_CC)source='openct/buffer.c' object='openct/libccid_la-buffer.lo' libtool=yes 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccid_la_CFLAGS) $(CFLAGS) -c -o openct/libccid_la-buffer.lo `test -f 'openct/buffer.c' || echo '$(srcdir)/'`openct/buffer.c
 
 openct/libccid_la-checksum.lo: openct/checksum.c
-	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccid_la_CFLAGS) $(CFLAGS) -MT openct/libccid_la-checksum.lo -MD -MP -MF openct/$(DEPDIR)/libccid_la-checksum.Tpo -c -o openct/libccid_la-checksum.lo `test -f 'openct/checksum.c' || echo '$(srcdir)/'`openct/checksum.c
-	$(AM_V_at)$(am__mv) openct/$(DEPDIR)/libccid_la-checksum.Tpo openct/$(DEPDIR)/libccid_la-checksum.Plo
-#	$(AM_V_CC)source='openct/checksum.c' object='openct/libccid_la-checksum.lo' libtool=yes \
-#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccid_la_CFLAGS) $(CFLAGS) -c -o openct/libccid_la-checksum.lo `test -f 'openct/checksum.c' || echo '$(srcdir)/'`openct/checksum.c
+#	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccid_la_CFLAGS) $(CFLAGS) -MT openct/libccid_la-checksum.lo -MD -MP -MF openct/$(DEPDIR)/libccid_la-checksum.Tpo -c -o openct/libccid_la-checksum.lo `test -f 'openct/checksum.c' || echo '$(srcdir)/'`openct/checksum.c
+#	$(AM_V_at)$(am__mv) openct/$(DEPDIR)/libccid_la-checksum.Tpo openct/$(DEPDIR)/libccid_la-checksum.Plo
+#	$(AM_V_CC)source='openct/checksum.c' object='openct/libccid_la-checksum.lo' libtool=yes 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccid_la_CFLAGS) $(CFLAGS) -c -o openct/libccid_la-checksum.lo `test -f 'openct/checksum.c' || echo '$(srcdir)/'`openct/checksum.c
 
 openct/libccid_la-proto-t1.lo: openct/proto-t1.c
-	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccid_la_CFLAGS) $(CFLAGS) -MT openct/libccid_la-proto-t1.lo -MD -MP -MF openct/$(DEPDIR)/libccid_la-proto-t1.Tpo -c -o openct/libccid_la-proto-t1.lo `test -f 'openct/proto-t1.c' || echo '$(srcdir)/'`openct/proto-t1.c
-	$(AM_V_at)$(am__mv) openct/$(DEPDIR)/libccid_la-proto-t1.Tpo openct/$(DEPDIR)/libccid_la-proto-t1.Plo
-#	$(AM_V_CC)source='openct/proto-t1.c' object='openct/libccid_la-proto-t1.lo' libtool=yes \
-#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccid_la_CFLAGS) $(CFLAGS) -c -o openct/libccid_la-proto-t1.lo `test -f 'openct/proto-t1.c' || echo '$(srcdir)/'`openct/proto-t1.c
+#	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccid_la_CFLAGS) $(CFLAGS) -MT openct/libccid_la-proto-t1.lo -MD -MP -MF openct/$(DEPDIR)/libccid_la-proto-t1.Tpo -c -o openct/libccid_la-proto-t1.lo `test -f 'openct/proto-t1.c' || echo '$(srcdir)/'`openct/proto-t1.c
+#	$(AM_V_at)$(am__mv) openct/$(DEPDIR)/libccid_la-proto-t1.Tpo openct/$(DEPDIR)/libccid_la-proto-t1.Plo
+#	$(AM_V_CC)source='openct/proto-t1.c' object='openct/libccid_la-proto-t1.lo' libtool=yes 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccid_la_CFLAGS) $(CFLAGS) -c -o openct/libccid_la-proto-t1.lo `test -f 'openct/proto-t1.c' || echo '$(srcdir)/'`openct/proto-t1.c
 
 libccidtwin_la-ccid.lo: ccid.c
-	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccidtwin_la_CFLAGS) $(CFLAGS) -MT libccidtwin_la-ccid.lo -MD -MP -MF $(DEPDIR)/libccidtwin_la-ccid.Tpo -c -o libccidtwin_la-ccid.lo `test -f 'ccid.c' || echo '$(srcdir)/'`ccid.c
-	$(AM_V_at)$(am__mv) $(DEPDIR)/libccidtwin_la-ccid.Tpo $(DEPDIR)/libccidtwin_la-ccid.Plo
-#	$(AM_V_CC)source='ccid.c' object='libccidtwin_la-ccid.lo' libtool=yes \
-#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccidtwin_la_CFLAGS) $(CFLAGS) -c -o libccidtwin_la-ccid.lo `test -f 'ccid.c' || echo '$(srcdir)/'`ccid.c
+#	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccidtwin_la_CFLAGS) $(CFLAGS) -MT libccidtwin_la-ccid.lo -MD -MP -MF $(DEPDIR)/libccidtwin_la-ccid.Tpo -c -o libccidtwin_la-ccid.lo `test -f 'ccid.c' || echo '$(srcdir)/'`ccid.c
+#	$(AM_V_at)$(am__mv) $(DEPDIR)/libccidtwin_la-ccid.Tpo $(DEPDIR)/libccidtwin_la-ccid.Plo
+#	$(AM_V_CC)source='ccid.c' object='libccidtwin_la-ccid.lo' libtool=yes 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccidtwin_la_CFLAGS) $(CFLAGS) -c -o libccidtwin_la-ccid.lo `test -f 'ccid.c' || echo '$(srcdir)/'`ccid.c
 
 libccidtwin_la-commands.lo: commands.c
-	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccidtwin_la_CFLAGS) $(CFLAGS) -MT libccidtwin_la-commands.lo -MD -MP -MF $(DEPDIR)/libccidtwin_la-commands.Tpo -c -o libccidtwin_la-commands.lo `test -f 'commands.c' || echo '$(srcdir)/'`commands.c
-	$(AM_V_at)$(am__mv) $(DEPDIR)/libccidtwin_la-commands.Tpo $(DEPDIR)/libccidtwin_la-commands.Plo
-#	$(AM_V_CC)source='commands.c' object='libccidtwin_la-commands.lo' libtool=yes \
-#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccidtwin_la_CFLAGS) $(CFLAGS) -c -o libccidtwin_la-commands.lo `test -f 'commands.c' || echo '$(srcdir)/'`commands.c
+#	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccidtwin_la_CFLAGS) $(CFLAGS) -MT libccidtwin_la-commands.lo -MD -MP -MF $(DEPDIR)/libccidtwin_la-commands.Tpo -c -o libccidtwin_la-commands.lo `test -f 'commands.c' || echo '$(srcdir)/'`commands.c
+#	$(AM_V_at)$(am__mv) $(DEPDIR)/libccidtwin_la-commands.Tpo $(DEPDIR)/libccidtwin_la-commands.Plo
+#	$(AM_V_CC)source='commands.c' object='libccidtwin_la-commands.lo' libtool=yes 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccidtwin_la_CFLAGS) $(CFLAGS) -c -o libccidtwin_la-commands.lo `test -f 'commands.c' || echo '$(srcdir)/'`commands.c
 
 libccidtwin_la-ifdhandler.lo: ifdhandler.c
-	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccidtwin_la_CFLAGS) $(CFLAGS) -MT libccidtwin_la-ifdhandler.lo -MD -MP -MF $(DEPDIR)/libccidtwin_la-ifdhandler.Tpo -c -o libccidtwin_la-ifdhandler.lo `test -f 'ifdhandler.c' || echo '$(srcdir)/'`ifdhandler.c
-	$(AM_V_at)$(am__mv) $(DEPDIR)/libccidtwin_la-ifdhandler.Tpo $(DEPDIR)/libccidtwin_la-ifdhandler.Plo
-#	$(AM_V_CC)source='ifdhandler.c' object='libccidtwin_la-ifdhandler.lo' libtool=yes \
-#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccidtwin_la_CFLAGS) $(CFLAGS) -c -o libccidtwin_la-ifdhandler.lo `test -f 'ifdhandler.c' || echo '$(srcdir)/'`ifdhandler.c
+#	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccidtwin_la_CFLAGS) $(CFLAGS) -MT libccidtwin_la-ifdhandler.lo -MD -MP -MF $(DEPDIR)/libccidtwin_la-ifdhandler.Tpo -c -o libccidtwin_la-ifdhandler.lo `test -f 'ifdhandler.c' || echo '$(srcdir)/'`ifdhandler.c
+#	$(AM_V_at)$(am__mv) $(DEPDIR)/libccidtwin_la-ifdhandler.Tpo $(DEPDIR)/libccidtwin_la-ifdhandler.Plo
+#	$(AM_V_CC)source='ifdhandler.c' object='libccidtwin_la-ifdhandler.lo' libtool=yes 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccidtwin_la_CFLAGS) $(CFLAGS) -c -o libccidtwin_la-ifdhandler.lo `test -f 'ifdhandler.c' || echo '$(srcdir)/'`ifdhandler.c
 
 libccidtwin_la-utils.lo: utils.c
-	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccidtwin_la_CFLAGS) $(CFLAGS) -MT libccidtwin_la-utils.lo -MD -MP -MF $(DEPDIR)/libccidtwin_la-utils.Tpo -c -o libccidtwin_la-utils.lo `test -f 'utils.c' || echo '$(srcdir)/'`utils.c
-	$(AM_V_at)$(am__mv) $(DEPDIR)/libccidtwin_la-utils.Tpo $(DEPDIR)/libccidtwin_la-utils.Plo
-#	$(AM_V_CC)source='utils.c' object='libccidtwin_la-utils.lo' libtool=yes \
-#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccidtwin_la_CFLAGS) $(CFLAGS) -c -o libccidtwin_la-utils.lo `test -f 'utils.c' || echo '$(srcdir)/'`utils.c
+#	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccidtwin_la_CFLAGS) $(CFLAGS) -MT libccidtwin_la-utils.lo -MD -MP -MF $(DEPDIR)/libccidtwin_la-utils.Tpo -c -o libccidtwin_la-utils.lo `test -f 'utils.c' || echo '$(srcdir)/'`utils.c
+#	$(AM_V_at)$(am__mv) $(DEPDIR)/libccidtwin_la-utils.Tpo $(DEPDIR)/libccidtwin_la-utils.Plo
+#	$(AM_V_CC)source='utils.c' object='libccidtwin_la-utils.lo' libtool=yes 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccidtwin_la_CFLAGS) $(CFLAGS) -c -o libccidtwin_la-utils.lo `test -f 'utils.c' || echo '$(srcdir)/'`utils.c
 
 libccidtwin_la-ccid_serial.lo: ccid_serial.c
-	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccidtwin_la_CFLAGS) $(CFLAGS) -MT libccidtwin_la-ccid_serial.lo -MD -MP -MF $(DEPDIR)/libccidtwin_la-ccid_serial.Tpo -c -o libccidtwin_la-ccid_serial.lo `test -f 'ccid_serial.c' || echo '$(srcdir)/'`ccid_serial.c
-	$(AM_V_at)$(am__mv) $(DEPDIR)/libccidtwin_la-ccid_serial.Tpo $(DEPDIR)/libccidtwin_la-ccid_serial.Plo
-#	$(AM_V_CC)source='ccid_serial.c' object='libccidtwin_la-ccid_serial.lo' libtool=yes \
-#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccidtwin_la_CFLAGS) $(CFLAGS) -c -o libccidtwin_la-ccid_serial.lo `test -f 'ccid_serial.c' || echo '$(srcdir)/'`ccid_serial.c
+#	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccidtwin_la_CFLAGS) $(CFLAGS) -MT libccidtwin_la-ccid_serial.lo -MD -MP -MF $(DEPDIR)/libccidtwin_la-ccid_serial.Tpo -c -o libccidtwin_la-ccid_serial.lo `test -f 'ccid_serial.c' || echo '$(srcdir)/'`ccid_serial.c
+#	$(AM_V_at)$(am__mv) $(DEPDIR)/libccidtwin_la-ccid_serial.Tpo $(DEPDIR)/libccidtwin_la-ccid_serial.Plo
+#	$(AM_V_CC)source='ccid_serial.c' object='libccidtwin_la-ccid_serial.lo' libtool=yes 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccidtwin_la_CFLAGS) $(CFLAGS) -c -o libccidtwin_la-ccid_serial.lo `test -f 'ccid_serial.c' || echo '$(srcdir)/'`ccid_serial.c
 
 libccidtwin_la-tokenparser.lo: tokenparser.c
-	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccidtwin_la_CFLAGS) $(CFLAGS) -MT libccidtwin_la-tokenparser.lo -MD -MP -MF $(DEPDIR)/libccidtwin_la-tokenparser.Tpo -c -o libccidtwin_la-tokenparser.lo `test -f 'tokenparser.c' || echo '$(srcdir)/'`tokenparser.c
-	$(AM_V_at)$(am__mv) $(DEPDIR)/libccidtwin_la-tokenparser.Tpo $(DEPDIR)/libccidtwin_la-tokenparser.Plo
-#	$(AM_V_CC)source='tokenparser.c' object='libccidtwin_la-tokenparser.lo' libtool=yes \
-#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccidtwin_la_CFLAGS) $(CFLAGS) -c -o libccidtwin_la-tokenparser.lo `test -f 'tokenparser.c' || echo '$(srcdir)/'`tokenparser.c
+#	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccidtwin_la_CFLAGS) $(CFLAGS) -MT libccidtwin_la-tokenparser.lo -MD -MP -MF $(DEPDIR)/libccidtwin_la-tokenparser.Tpo -c -o libccidtwin_la-tokenparser.lo `test -f 'tokenparser.c' || echo '$(srcdir)/'`tokenparser.c
+#	$(AM_V_at)$(am__mv) $(DEPDIR)/libccidtwin_la-tokenparser.Tpo $(DEPDIR)/libccidtwin_la-tokenparser.Plo
+#	$(AM_V_CC)source='tokenparser.c' object='libccidtwin_la-tokenparser.lo' libtool=yes 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccidtwin_la_CFLAGS) $(CFLAGS) -c -o libccidtwin_la-tokenparser.lo `test -f 'tokenparser.c' || echo '$(srcdir)/'`tokenparser.c
 
 libccidtwin_la-strlcpy.lo: strlcpy.c
-	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccidtwin_la_CFLAGS) $(CFLAGS) -MT libccidtwin_la-strlcpy.lo -MD -MP -MF $(DEPDIR)/libccidtwin_la-strlcpy.Tpo -c -o libccidtwin_la-strlcpy.lo `test -f 'strlcpy.c' || echo '$(srcdir)/'`strlcpy.c
-	$(AM_V_at)$(am__mv) $(DEPDIR)/libccidtwin_la-strlcpy.Tpo $(DEPDIR)/libccidtwin_la-strlcpy.Plo
-#	$(AM_V_CC)source='strlcpy.c' object='libccidtwin_la-strlcpy.lo' libtool=yes \
-#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccidtwin_la_CFLAGS) $(CFLAGS) -c -o libccidtwin_la-strlcpy.lo `test -f 'strlcpy.c' || echo '$(srcdir)/'`strlcpy.c
+#	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccidtwin_la_CFLAGS) $(CFLAGS) -MT libccidtwin_la-strlcpy.lo -MD -MP -MF $(DEPDIR)/libccidtwin_la-strlcpy.Tpo -c -o libccidtwin_la-strlcpy.lo `test -f 'strlcpy.c' || echo '$(srcdir)/'`strlcpy.c
+#	$(AM_V_at)$(am__mv) $(DEPDIR)/libccidtwin_la-strlcpy.Tpo $(DEPDIR)/libccidtwin_la-strlcpy.Plo
+#	$(AM_V_CC)source='strlcpy.c' object='libccidtwin_la-strlcpy.lo' libtool=yes 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccidtwin_la_CFLAGS) $(CFLAGS) -c -o libccidtwin_la-strlcpy.lo `test -f 'strlcpy.c' || echo '$(srcdir)/'`strlcpy.c
 
 libccidtwin_la-simclist.lo: simclist.c
-	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccidtwin_la_CFLAGS) $(CFLAGS) -MT libccidtwin_la-simclist.lo -MD -MP -MF $(DEPDIR)/libccidtwin_la-simclist.Tpo -c -o libccidtwin_la-simclist.lo `test -f 'simclist.c' || echo '$(srcdir)/'`simclist.c
-	$(AM_V_at)$(am__mv) $(DEPDIR)/libccidtwin_la-simclist.Tpo $(DEPDIR)/libccidtwin_la-simclist.Plo
-#	$(AM_V_CC)source='simclist.c' object='libccidtwin_la-simclist.lo' libtool=yes \
-#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccidtwin_la_CFLAGS) $(CFLAGS) -c -o libccidtwin_la-simclist.lo `test -f 'simclist.c' || echo '$(srcdir)/'`simclist.c
+#	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccidtwin_la_CFLAGS) $(CFLAGS) -MT libccidtwin_la-simclist.lo -MD -MP -MF $(DEPDIR)/libccidtwin_la-simclist.Tpo -c -o libccidtwin_la-simclist.lo `test -f 'simclist.c' || echo '$(srcdir)/'`simclist.c
+#	$(AM_V_at)$(am__mv) $(DEPDIR)/libccidtwin_la-simclist.Tpo $(DEPDIR)/libccidtwin_la-simclist.Plo
+#	$(AM_V_CC)source='simclist.c' object='libccidtwin_la-simclist.lo' libtool=yes 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccidtwin_la_CFLAGS) $(CFLAGS) -c -o libccidtwin_la-simclist.lo `test -f 'simclist.c' || echo '$(srcdir)/'`simclist.c
 
 libccidtwin_la-debug.lo: debug.c
-	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccidtwin_la_CFLAGS) $(CFLAGS) -MT libccidtwin_la-debug.lo -MD -MP -MF $(DEPDIR)/libccidtwin_la-debug.Tpo -c -o libccidtwin_la-debug.lo `test -f 'debug.c' || echo '$(srcdir)/'`debug.c
-	$(AM_V_at)$(am__mv) $(DEPDIR)/libccidtwin_la-debug.Tpo $(DEPDIR)/libccidtwin_la-debug.Plo
-#	$(AM_V_CC)source='debug.c' object='libccidtwin_la-debug.lo' libtool=yes \
-#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccidtwin_la_CFLAGS) $(CFLAGS) -c -o libccidtwin_la-debug.lo `test -f 'debug.c' || echo '$(srcdir)/'`debug.c
+#	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccidtwin_la_CFLAGS) $(CFLAGS) -MT libccidtwin_la-debug.lo -MD -MP -MF $(DEPDIR)/libccidtwin_la-debug.Tpo -c -o libccidtwin_la-debug.lo `test -f 'debug.c' || echo '$(srcdir)/'`debug.c
+#	$(AM_V_at)$(am__mv) $(DEPDIR)/libccidtwin_la-debug.Tpo $(DEPDIR)/libccidtwin_la-debug.Plo
+#	$(AM_V_CC)source='debug.c' object='libccidtwin_la-debug.lo' libtool=yes 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccidtwin_la_CFLAGS) $(CFLAGS) -c -o libccidtwin_la-debug.lo `test -f 'debug.c' || echo '$(srcdir)/'`debug.c
 
 towitoko/libccidtwin_la-atr.lo: towitoko/atr.c
-	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccidtwin_la_CFLAGS) $(CFLAGS) -MT towitoko/libccidtwin_la-atr.lo -MD -MP -MF towitoko/$(DEPDIR)/libccidtwin_la-atr.Tpo -c -o towitoko/libccidtwin_la-atr.lo `test -f 'towitoko/atr.c' || echo '$(srcdir)/'`towitoko/atr.c
-	$(AM_V_at)$(am__mv) towitoko/$(DEPDIR)/libccidtwin_la-atr.Tpo towitoko/$(DEPDIR)/libccidtwin_la-atr.Plo
-#	$(AM_V_CC)source='towitoko/atr.c' object='towitoko/libccidtwin_la-atr.lo' libtool=yes \
-#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccidtwin_la_CFLAGS) $(CFLAGS) -c -o towitoko/libccidtwin_la-atr.lo `test -f 'towitoko/atr.c' || echo '$(srcdir)/'`towitoko/atr.c
+#	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccidtwin_la_CFLAGS) $(CFLAGS) -MT towitoko/libccidtwin_la-atr.lo -MD -MP -MF towitoko/$(DEPDIR)/libccidtwin_la-atr.Tpo -c -o towitoko/libccidtwin_la-atr.lo `test -f 'towitoko/atr.c' || echo '$(srcdir)/'`towitoko/atr.c
+#	$(AM_V_at)$(am__mv) towitoko/$(DEPDIR)/libccidtwin_la-atr.Tpo towitoko/$(DEPDIR)/libccidtwin_la-atr.Plo
+#	$(AM_V_CC)source='towitoko/atr.c' object='towitoko/libccidtwin_la-atr.lo' libtool=yes 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccidtwin_la_CFLAGS) $(CFLAGS) -c -o towitoko/libccidtwin_la-atr.lo `test -f 'towitoko/atr.c' || echo '$(srcdir)/'`towitoko/atr.c
 
 towitoko/libccidtwin_la-pps.lo: towitoko/pps.c
-	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccidtwin_la_CFLAGS) $(CFLAGS) -MT towitoko/libccidtwin_la-pps.lo -MD -MP -MF towitoko/$(DEPDIR)/libccidtwin_la-pps.Tpo -c -o towitoko/libccidtwin_la-pps.lo `test -f 'towitoko/pps.c' || echo '$(srcdir)/'`towitoko/pps.c
-	$(AM_V_at)$(am__mv) towitoko/$(DEPDIR)/libccidtwin_la-pps.Tpo towitoko/$(DEPDIR)/libccidtwin_la-pps.Plo
-#	$(AM_V_CC)source='towitoko/pps.c' object='towitoko/libccidtwin_la-pps.lo' libtool=yes \
-#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccidtwin_la_CFLAGS) $(CFLAGS) -c -o towitoko/libccidtwin_la-pps.lo `test -f 'towitoko/pps.c' || echo '$(srcdir)/'`towitoko/pps.c
+#	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccidtwin_la_CFLAGS) $(CFLAGS) -MT towitoko/libccidtwin_la-pps.lo -MD -MP -MF towitoko/$(DEPDIR)/libccidtwin_la-pps.Tpo -c -o towitoko/libccidtwin_la-pps.lo `test -f 'towitoko/pps.c' || echo '$(srcdir)/'`towitoko/pps.c
+#	$(AM_V_at)$(am__mv) towitoko/$(DEPDIR)/libccidtwin_la-pps.Tpo towitoko/$(DEPDIR)/libccidtwin_la-pps.Plo
+#	$(AM_V_CC)source='towitoko/pps.c' object='towitoko/libccidtwin_la-pps.lo' libtool=yes 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccidtwin_la_CFLAGS) $(CFLAGS) -c -o towitoko/libccidtwin_la-pps.lo `test -f 'towitoko/pps.c' || echo '$(srcdir)/'`towitoko/pps.c
 
 openct/libccidtwin_la-buffer.lo: openct/buffer.c
-	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccidtwin_la_CFLAGS) $(CFLAGS) -MT openct/libccidtwin_la-buffer.lo -MD -MP -MF openct/$(DEPDIR)/libccidtwin_la-buffer.Tpo -c -o openct/libccidtwin_la-buffer.lo `test -f 'openct/buffer.c' || echo '$(srcdir)/'`openct/buffer.c
-	$(AM_V_at)$(am__mv) openct/$(DEPDIR)/libccidtwin_la-buffer.Tpo openct/$(DEPDIR)/libccidtwin_la-buffer.Plo
-#	$(AM_V_CC)source='openct/buffer.c' object='openct/libccidtwin_la-buffer.lo' libtool=yes \
-#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccidtwin_la_CFLAGS) $(CFLAGS) -c -o openct/libccidtwin_la-buffer.lo `test -f 'openct/buffer.c' || echo '$(srcdir)/'`openct/buffer.c
+#	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccidtwin_la_CFLAGS) $(CFLAGS) -MT openct/libccidtwin_la-buffer.lo -MD -MP -MF openct/$(DEPDIR)/libccidtwin_la-buffer.Tpo -c -o openct/libccidtwin_la-buffer.lo `test -f 'openct/buffer.c' || echo '$(srcdir)/'`openct/buffer.c
+#	$(AM_V_at)$(am__mv) openct/$(DEPDIR)/libccidtwin_la-buffer.Tpo openct/$(DEPDIR)/libccidtwin_la-buffer.Plo
+#	$(AM_V_CC)source='openct/buffer.c' object='openct/libccidtwin_la-buffer.lo' libtool=yes 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccidtwin_la_CFLAGS) $(CFLAGS) -c -o openct/libccidtwin_la-buffer.lo `test -f 'openct/buffer.c' || echo '$(srcdir)/'`openct/buffer.c
 
 openct/libccidtwin_la-checksum.lo: openct/checksum.c
-	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccidtwin_la_CFLAGS) $(CFLAGS) -MT openct/libccidtwin_la-checksum.lo -MD -MP -MF openct/$(DEPDIR)/libccidtwin_la-checksum.Tpo -c -o openct/libccidtwin_la-checksum.lo `test -f 'openct/checksum.c' || echo '$(srcdir)/'`openct/checksum.c
-	$(AM_V_at)$(am__mv) openct/$(DEPDIR)/libccidtwin_la-checksum.Tpo openct/$(DEPDIR)/libccidtwin_la-checksum.Plo
-#	$(AM_V_CC)source='openct/checksum.c' object='openct/libccidtwin_la-checksum.lo' libtool=yes \
-#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccidtwin_la_CFLAGS) $(CFLAGS) -c -o openct/libccidtwin_la-checksum.lo `test -f 'openct/checksum.c' || echo '$(srcdir)/'`openct/checksum.c
+#	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccidtwin_la_CFLAGS) $(CFLAGS) -MT openct/libccidtwin_la-checksum.lo -MD -MP -MF openct/$(DEPDIR)/libccidtwin_la-checksum.Tpo -c -o openct/libccidtwin_la-checksum.lo `test -f 'openct/checksum.c' || echo '$(srcdir)/'`openct/checksum.c
+#	$(AM_V_at)$(am__mv) openct/$(DEPDIR)/libccidtwin_la-checksum.Tpo openct/$(DEPDIR)/libccidtwin_la-checksum.Plo
+#	$(AM_V_CC)source='openct/checksum.c' object='openct/libccidtwin_la-checksum.lo' libtool=yes 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccidtwin_la_CFLAGS) $(CFLAGS) -c -o openct/libccidtwin_la-checksum.lo `test -f 'openct/checksum.c' || echo '$(srcdir)/'`openct/checksum.c
 
 openct/libccidtwin_la-proto-t1.lo: openct/proto-t1.c
-	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccidtwin_la_CFLAGS) $(CFLAGS) -MT openct/libccidtwin_la-proto-t1.lo -MD -MP -MF openct/$(DEPDIR)/libccidtwin_la-proto-t1.Tpo -c -o openct/libccidtwin_la-proto-t1.lo `test -f 'openct/proto-t1.c' || echo '$(srcdir)/'`openct/proto-t1.c
-	$(AM_V_at)$(am__mv) openct/$(DEPDIR)/libccidtwin_la-proto-t1.Tpo openct/$(DEPDIR)/libccidtwin_la-proto-t1.Plo
-#	$(AM_V_CC)source='openct/proto-t1.c' object='openct/libccidtwin_la-proto-t1.lo' libtool=yes \
-#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccidtwin_la_CFLAGS) $(CFLAGS) -c -o openct/libccidtwin_la-proto-t1.lo `test -f 'openct/proto-t1.c' || echo '$(srcdir)/'`openct/proto-t1.c
+#	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccidtwin_la_CFLAGS) $(CFLAGS) -MT openct/libccidtwin_la-proto-t1.lo -MD -MP -MF openct/$(DEPDIR)/libccidtwin_la-proto-t1.Tpo -c -o openct/libccidtwin_la-proto-t1.lo `test -f 'openct/proto-t1.c' || echo '$(srcdir)/'`openct/proto-t1.c
+#	$(AM_V_at)$(am__mv) openct/$(DEPDIR)/libccidtwin_la-proto-t1.Tpo openct/$(DEPDIR)/libccidtwin_la-proto-t1.Plo
+#	$(AM_V_CC)source='openct/proto-t1.c' object='openct/libccidtwin_la-proto-t1.lo' libtool=yes 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libccidtwin_la_CFLAGS) $(CFLAGS) -c -o openct/libccidtwin_la-proto-t1.lo `test -f 'openct/proto-t1.c' || echo '$(srcdir)/'`openct/proto-t1.c
 
 parse-parse.o: parse.c
-	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(parse_CFLAGS) $(CFLAGS) -MT parse-parse.o -MD -MP -MF $(DEPDIR)/parse-parse.Tpo -c -o parse-parse.o `test -f 'parse.c' || echo '$(srcdir)/'`parse.c
-	$(AM_V_at)$(am__mv) $(DEPDIR)/parse-parse.Tpo $(DEPDIR)/parse-parse.Po
-#	$(AM_V_CC)source='parse.c' object='parse-parse.o' libtool=no \
-#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(parse_CFLAGS) $(CFLAGS) -c -o parse-parse.o `test -f 'parse.c' || echo '$(srcdir)/'`parse.c
+#	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(parse_CFLAGS) $(CFLAGS) -MT parse-parse.o -MD -MP -MF $(DEPDIR)/parse-parse.Tpo -c -o parse-parse.o `test -f 'parse.c' || echo '$(srcdir)/'`parse.c
+#	$(AM_V_at)$(am__mv) $(DEPDIR)/parse-parse.Tpo $(DEPDIR)/parse-parse.Po
+#	$(AM_V_CC)source='parse.c' object='parse-parse.o' libtool=no 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(parse_CFLAGS) $(CFLAGS) -c -o parse-parse.o `test -f 'parse.c' || echo '$(srcdir)/'`parse.c
 
 parse-parse.obj: parse.c
-	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(parse_CFLAGS) $(CFLAGS) -MT parse-parse.obj -MD -MP -MF $(DEPDIR)/parse-parse.Tpo -c -o parse-parse.obj `if test -f 'parse.c'; then $(CYGPATH_W) 'parse.c'; else $(CYGPATH_W) '$(srcdir)/parse.c'; fi`
-	$(AM_V_at)$(am__mv) $(DEPDIR)/parse-parse.Tpo $(DEPDIR)/parse-parse.Po
-#	$(AM_V_CC)source='parse.c' object='parse-parse.obj' libtool=no \
-#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(parse_CFLAGS) $(CFLAGS) -c -o parse-parse.obj `if test -f 'parse.c'; then $(CYGPATH_W) 'parse.c'; else $(CYGPATH_W) '$(srcdir)/parse.c'; fi`
+#	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(parse_CFLAGS) $(CFLAGS) -MT parse-parse.obj -MD -MP -MF $(DEPDIR)/parse-parse.Tpo -c -o parse-parse.obj `if test -f 'parse.c'; then $(CYGPATH_W) 'parse.c'; else $(CYGPATH_W) '$(srcdir)/parse.c'; fi`
+#	$(AM_V_at)$(am__mv) $(DEPDIR)/parse-parse.Tpo $(DEPDIR)/parse-parse.Po
+#	$(AM_V_CC)source='parse.c' object='parse-parse.obj' libtool=no 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(parse_CFLAGS) $(CFLAGS) -c -o parse-parse.obj `if test -f 'parse.c'; then $(CYGPATH_W) 'parse.c'; else $(CYGPATH_W) '$(srcdir)/parse.c'; fi`
 
 parse-debug.o: debug.c
-	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(parse_CFLAGS) $(CFLAGS) -MT parse-debug.o -MD -MP -MF $(DEPDIR)/parse-debug.Tpo -c -o parse-debug.o `test -f 'debug.c' || echo '$(srcdir)/'`debug.c
-	$(AM_V_at)$(am__mv) $(DEPDIR)/parse-debug.Tpo $(DEPDIR)/parse-debug.Po
-#	$(AM_V_CC)source='debug.c' object='parse-debug.o' libtool=no \
-#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(parse_CFLAGS) $(CFLAGS) -c -o parse-debug.o `test -f 'debug.c' || echo '$(srcdir)/'`debug.c
+#	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(parse_CFLAGS) $(CFLAGS) -MT parse-debug.o -MD -MP -MF $(DEPDIR)/parse-debug.Tpo -c -o parse-debug.o `test -f 'debug.c' || echo '$(srcdir)/'`debug.c
+#	$(AM_V_at)$(am__mv) $(DEPDIR)/parse-debug.Tpo $(DEPDIR)/parse-debug.Po
+#	$(AM_V_CC)source='debug.c' object='parse-debug.o' libtool=no 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(parse_CFLAGS) $(CFLAGS) -c -o parse-debug.o `test -f 'debug.c' || echo '$(srcdir)/'`debug.c
 
 parse-debug.obj: debug.c
-	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(parse_CFLAGS) $(CFLAGS) -MT parse-debug.obj -MD -MP -MF $(DEPDIR)/parse-debug.Tpo -c -o parse-debug.obj `if test -f 'debug.c'; then $(CYGPATH_W) 'debug.c'; else $(CYGPATH_W) '$(srcdir)/debug.c'; fi`
-	$(AM_V_at)$(am__mv) $(DEPDIR)/parse-debug.Tpo $(DEPDIR)/parse-debug.Po
-#	$(AM_V_CC)source='debug.c' object='parse-debug.obj' libtool=no \
-#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(parse_CFLAGS) $(CFLAGS) -c -o parse-debug.obj `if test -f 'debug.c'; then $(CYGPATH_W) 'debug.c'; else $(CYGPATH_W) '$(srcdir)/debug.c'; fi`
+#	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(parse_CFLAGS) $(CFLAGS) -MT parse-debug.obj -MD -MP -MF $(DEPDIR)/parse-debug.Tpo -c -o parse-debug.obj `if test -f 'debug.c'; then $(CYGPATH_W) 'debug.c'; else $(CYGPATH_W) '$(srcdir)/debug.c'; fi`
+#	$(AM_V_at)$(am__mv) $(DEPDIR)/parse-debug.Tpo $(DEPDIR)/parse-debug.Po
+#	$(AM_V_CC)source='debug.c' object='parse-debug.obj' libtool=no 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(parse_CFLAGS) $(CFLAGS) -c -o parse-debug.obj `if test -f 'debug.c'; then $(CYGPATH_W) 'debug.c'; else $(CYGPATH_W) '$(srcdir)/debug.c'; fi`
 
 parse-ccid_usb.o: ccid_usb.c
-	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(parse_CFLAGS) $(CFLAGS) -MT parse-ccid_usb.o -MD -MP -MF $(DEPDIR)/parse-ccid_usb.Tpo -c -o parse-ccid_usb.o `test -f 'ccid_usb.c' || echo '$(srcdir)/'`ccid_usb.c
-	$(AM_V_at)$(am__mv) $(DEPDIR)/parse-ccid_usb.Tpo $(DEPDIR)/parse-ccid_usb.Po
-#	$(AM_V_CC)source='ccid_usb.c' object='parse-ccid_usb.o' libtool=no \
-#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(parse_CFLAGS) $(CFLAGS) -c -o parse-ccid_usb.o `test -f 'ccid_usb.c' || echo '$(srcdir)/'`ccid_usb.c
+#	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(parse_CFLAGS) $(CFLAGS) -MT parse-ccid_usb.o -MD -MP -MF $(DEPDIR)/parse-ccid_usb.Tpo -c -o parse-ccid_usb.o `test -f 'ccid_usb.c' || echo '$(srcdir)/'`ccid_usb.c
+#	$(AM_V_at)$(am__mv) $(DEPDIR)/parse-ccid_usb.Tpo $(DEPDIR)/parse-ccid_usb.Po
+#	$(AM_V_CC)source='ccid_usb.c' object='parse-ccid_usb.o' libtool=no 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(parse_CFLAGS) $(CFLAGS) -c -o parse-ccid_usb.o `test -f 'ccid_usb.c' || echo '$(srcdir)/'`ccid_usb.c
 
 parse-ccid_usb.obj: ccid_usb.c
-	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(parse_CFLAGS) $(CFLAGS) -MT parse-ccid_usb.obj -MD -MP -MF $(DEPDIR)/parse-ccid_usb.Tpo -c -o parse-ccid_usb.obj `if test -f 'ccid_usb.c'; then $(CYGPATH_W) 'ccid_usb.c'; else $(CYGPATH_W) '$(srcdir)/ccid_usb.c'; fi`
-	$(AM_V_at)$(am__mv) $(DEPDIR)/parse-ccid_usb.Tpo $(DEPDIR)/parse-ccid_usb.Po
-#	$(AM_V_CC)source='ccid_usb.c' object='parse-ccid_usb.obj' libtool=no \
-#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(parse_CFLAGS) $(CFLAGS) -c -o parse-ccid_usb.obj `if test -f 'ccid_usb.c'; then $(CYGPATH_W) 'ccid_usb.c'; else $(CYGPATH_W) '$(srcdir)/ccid_usb.c'; fi`
+#	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(parse_CFLAGS) $(CFLAGS) -MT parse-ccid_usb.obj -MD -MP -MF $(DEPDIR)/parse-ccid_usb.Tpo -c -o parse-ccid_usb.obj `if test -f 'ccid_usb.c'; then $(CYGPATH_W) 'ccid_usb.c'; else $(CYGPATH_W) '$(srcdir)/ccid_usb.c'; fi`
+#	$(AM_V_at)$(am__mv) $(DEPDIR)/parse-ccid_usb.Tpo $(DEPDIR)/parse-ccid_usb.Po
+#	$(AM_V_CC)source='ccid_usb.c' object='parse-ccid_usb.obj' libtool=no 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(parse_CFLAGS) $(CFLAGS) -c -o parse-ccid_usb.obj `if test -f 'ccid_usb.c'; then $(CYGPATH_W) 'ccid_usb.c'; else $(CYGPATH_W) '$(srcdir)/ccid_usb.c'; fi`
 
 parse-tokenparser.o: tokenparser.c
-	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(parse_CFLAGS) $(CFLAGS) -MT parse-tokenparser.o -MD -MP -MF $(DEPDIR)/parse-tokenparser.Tpo -c -o parse-tokenparser.o `test -f 'tokenparser.c' || echo '$(srcdir)/'`tokenparser.c
-	$(AM_V_at)$(am__mv) $(DEPDIR)/parse-tokenparser.Tpo $(DEPDIR)/parse-tokenparser.Po
-#	$(AM_V_CC)source='tokenparser.c' object='parse-tokenparser.o' libtool=no \
-#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(parse_CFLAGS) $(CFLAGS) -c -o parse-tokenparser.o `test -f 'tokenparser.c' || echo '$(srcdir)/'`tokenparser.c
+#	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(parse_CFLAGS) $(CFLAGS) -MT parse-tokenparser.o -MD -MP -MF $(DEPDIR)/parse-tokenparser.Tpo -c -o parse-tokenparser.o `test -f 'tokenparser.c' || echo '$(srcdir)/'`tokenparser.c
+#	$(AM_V_at)$(am__mv) $(DEPDIR)/parse-tokenparser.Tpo $(DEPDIR)/parse-tokenparser.Po
+#	$(AM_V_CC)source='tokenparser.c' object='parse-tokenparser.o' libtool=no 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(parse_CFLAGS) $(CFLAGS) -c -o parse-tokenparser.o `test -f 'tokenparser.c' || echo '$(srcdir)/'`tokenparser.c
 
 parse-tokenparser.obj: tokenparser.c
-	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(parse_CFLAGS) $(CFLAGS) -MT parse-tokenparser.obj -MD -MP -MF $(DEPDIR)/parse-tokenparser.Tpo -c -o parse-tokenparser.obj `if test -f 'tokenparser.c'; then $(CYGPATH_W) 'tokenparser.c'; else $(CYGPATH_W) '$(srcdir)/tokenparser.c'; fi`
-	$(AM_V_at)$(am__mv) $(DEPDIR)/parse-tokenparser.Tpo $(DEPDIR)/parse-tokenparser.Po
-#	$(AM_V_CC)source='tokenparser.c' object='parse-tokenparser.obj' libtool=no \
-#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(parse_CFLAGS) $(CFLAGS) -c -o parse-tokenparser.obj `if test -f 'tokenparser.c'; then $(CYGPATH_W) 'tokenparser.c'; else $(CYGPATH_W) '$(srcdir)/tokenparser.c'; fi`
+#	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(parse_CFLAGS) $(CFLAGS) -MT parse-tokenparser.obj -MD -MP -MF $(DEPDIR)/parse-tokenparser.Tpo -c -o parse-tokenparser.obj `if test -f 'tokenparser.c'; then $(CYGPATH_W) 'tokenparser.c'; else $(CYGPATH_W) '$(srcdir)/tokenparser.c'; fi`
+#	$(AM_V_at)$(am__mv) $(DEPDIR)/parse-tokenparser.Tpo $(DEPDIR)/parse-tokenparser.Po
+#	$(AM_V_CC)source='tokenparser.c' object='parse-tokenparser.obj' libtool=no 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(parse_CFLAGS) $(CFLAGS) -c -o parse-tokenparser.obj `if test -f 'tokenparser.c'; then $(CYGPATH_W) 'tokenparser.c'; else $(CYGPATH_W) '$(srcdir)/tokenparser.c'; fi`
 
 parse-strlcpy.o: strlcpy.c
-	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(parse_CFLAGS) $(CFLAGS) -MT parse-strlcpy.o -MD -MP -MF $(DEPDIR)/parse-strlcpy.Tpo -c -o parse-strlcpy.o `test -f 'strlcpy.c' || echo '$(srcdir)/'`strlcpy.c
-	$(AM_V_at)$(am__mv) $(DEPDIR)/parse-strlcpy.Tpo $(DEPDIR)/parse-strlcpy.Po
-#	$(AM_V_CC)source='strlcpy.c' object='parse-strlcpy.o' libtool=no \
-#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(parse_CFLAGS) $(CFLAGS) -c -o parse-strlcpy.o `test -f 'strlcpy.c' || echo '$(srcdir)/'`strlcpy.c
+#	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(parse_CFLAGS) $(CFLAGS) -MT parse-strlcpy.o -MD -MP -MF $(DEPDIR)/parse-strlcpy.Tpo -c -o parse-strlcpy.o `test -f 'strlcpy.c' || echo '$(srcdir)/'`strlcpy.c
+#	$(AM_V_at)$(am__mv) $(DEPDIR)/parse-strlcpy.Tpo $(DEPDIR)/parse-strlcpy.Po
+#	$(AM_V_CC)source='strlcpy.c' object='parse-strlcpy.o' libtool=no 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(parse_CFLAGS) $(CFLAGS) -c -o parse-strlcpy.o `test -f 'strlcpy.c' || echo '$(srcdir)/'`strlcpy.c
 
 parse-strlcpy.obj: strlcpy.c
-	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(parse_CFLAGS) $(CFLAGS) -MT parse-strlcpy.obj -MD -MP -MF $(DEPDIR)/parse-strlcpy.Tpo -c -o parse-strlcpy.obj `if test -f 'strlcpy.c'; then $(CYGPATH_W) 'strlcpy.c'; else $(CYGPATH_W) '$(srcdir)/strlcpy.c'; fi`
-	$(AM_V_at)$(am__mv) $(DEPDIR)/parse-strlcpy.Tpo $(DEPDIR)/parse-strlcpy.Po
-#	$(AM_V_CC)source='strlcpy.c' object='parse-strlcpy.obj' libtool=no \
-#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(parse_CFLAGS) $(CFLAGS) -c -o parse-strlcpy.obj `if test -f 'strlcpy.c'; then $(CYGPATH_W) 'strlcpy.c'; else $(CYGPATH_W) '$(srcdir)/strlcpy.c'; fi`
+#	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(parse_CFLAGS) $(CFLAGS) -MT parse-strlcpy.obj -MD -MP -MF $(DEPDIR)/parse-strlcpy.Tpo -c -o parse-strlcpy.obj `if test -f 'strlcpy.c'; then $(CYGPATH_W) 'strlcpy.c'; else $(CYGPATH_W) '$(srcdir)/strlcpy.c'; fi`
+#	$(AM_V_at)$(am__mv) $(DEPDIR)/parse-strlcpy.Tpo $(DEPDIR)/parse-strlcpy.Po
+#	$(AM_V_CC)source='strlcpy.c' object='parse-strlcpy.obj' libtool=no 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(parse_CFLAGS) $(CFLAGS) -c -o parse-strlcpy.obj `if test -f 'strlcpy.c'; then $(CYGPATH_W) 'strlcpy.c'; else $(CYGPATH_W) '$(srcdir)/strlcpy.c'; fi`
 
 parse-simclist.o: simclist.c
-	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(parse_CFLAGS) $(CFLAGS) -MT parse-simclist.o -MD -MP -MF $(DEPDIR)/parse-simclist.Tpo -c -o parse-simclist.o `test -f 'simclist.c' || echo '$(srcdir)/'`simclist.c
-	$(AM_V_at)$(am__mv) $(DEPDIR)/parse-simclist.Tpo $(DEPDIR)/parse-simclist.Po
-#	$(AM_V_CC)source='simclist.c' object='parse-simclist.o' libtool=no \
-#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(parse_CFLAGS) $(CFLAGS) -c -o parse-simclist.o `test -f 'simclist.c' || echo '$(srcdir)/'`simclist.c
+#	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(parse_CFLAGS) $(CFLAGS) -MT parse-simclist.o -MD -MP -MF $(DEPDIR)/parse-simclist.Tpo -c -o parse-simclist.o `test -f 'simclist.c' || echo '$(srcdir)/'`simclist.c
+#	$(AM_V_at)$(am__mv) $(DEPDIR)/parse-simclist.Tpo $(DEPDIR)/parse-simclist.Po
+#	$(AM_V_CC)source='simclist.c' object='parse-simclist.o' libtool=no 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(parse_CFLAGS) $(CFLAGS) -c -o parse-simclist.o `test -f 'simclist.c' || echo '$(srcdir)/'`simclist.c
 
 parse-simclist.obj: simclist.c
-	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(parse_CFLAGS) $(CFLAGS) -MT parse-simclist.obj -MD -MP -MF $(DEPDIR)/parse-simclist.Tpo -c -o parse-simclist.obj `if test -f 'simclist.c'; then $(CYGPATH_W) 'simclist.c'; else $(CYGPATH_W) '$(srcdir)/simclist.c'; fi`
-	$(AM_V_at)$(am__mv) $(DEPDIR)/parse-simclist.Tpo $(DEPDIR)/parse-simclist.Po
-#	$(AM_V_CC)source='simclist.c' object='parse-simclist.obj' libtool=no \
-#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(parse_CFLAGS) $(CFLAGS) -c -o parse-simclist.obj `if test -f 'simclist.c'; then $(CYGPATH_W) 'simclist.c'; else $(CYGPATH_W) '$(srcdir)/simclist.c'; fi`
+#	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(parse_CFLAGS) $(CFLAGS) -MT parse-simclist.obj -MD -MP -MF $(DEPDIR)/parse-simclist.Tpo -c -o parse-simclist.obj `if test -f 'simclist.c'; then $(CYGPATH_W) 'simclist.c'; else $(CYGPATH_W) '$(srcdir)/simclist.c'; fi`
+#	$(AM_V_at)$(am__mv) $(DEPDIR)/parse-simclist.Tpo $(DEPDIR)/parse-simclist.Po
+#	$(AM_V_CC)source='simclist.c' object='parse-simclist.obj' libtool=no 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(parse_CFLAGS) $(CFLAGS) -c -o parse-simclist.obj `if test -f 'simclist.c'; then $(CYGPATH_W) 'simclist.c'; else $(CYGPATH_W) '$(srcdir)/simclist.c'; fi`
 
 .l.c:
 	$(AM_V_LEX)$(am__skiplex) $(SHELL) $(YLWRAP) $< $(LEX_OUTPUT_ROOT).c $@ -- $(LEXCOMPILE)

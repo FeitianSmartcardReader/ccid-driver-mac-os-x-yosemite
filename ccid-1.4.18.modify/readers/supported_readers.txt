@@ -217,6 +217,10 @@
 # Feitian
 0x096E:0x060D:Feitian R502
 0x096E:0x061A:Feitian bR301
+0x096E:0x0608:Feitian R502 CL
+0x096E:0x0619:Feitian iR301
+0x096E:0x061C:Feitian iR301 UL
+0x096E:0x0622:Feitian VR504 VHBR
 
 # Feitian Technologies
 0x096E:0x0505:Feitian Technologies FT SCR310

@@ -456,12 +456,8 @@ EXTERNAL RESPONSECODE IFDHGetCapabilities(DWORD Lun, DWORD Tag,
 					 * multi-slot reader */
 					int readerID =  get_ccid_descriptor(reader_index) -> readerID;
 
-					if ((GEMALTOPROXDU == readerID) || (GEMALTOPROXSU == readerID))
+					if ((FEITIANR502 == readerID) || (GEMALTOPROXDU == readerID) || (GEMALTOPROXSU == readerID))
 						*Value = 2;
-					/* Add Feitian R502 dual interface reader*/
-					if ((FEITIANR502 == readerID) || (FEITIANR502 == readerID))
-						*Value = 2;
-		
 				}
 #endif
 				DEBUG_INFO2("Reader supports %d slot(s)", *Value);

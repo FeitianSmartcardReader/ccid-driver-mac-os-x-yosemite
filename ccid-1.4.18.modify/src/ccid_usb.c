@@ -396,18 +396,11 @@ status_t OpenUSBByName(unsigned int reader_index, /*@null@*/ char *device)
 				int readerID = (vendorID << 16) + productID;
 
 #ifdef USE_COMPOSITE_AS_MULTISLOT
-				static int static_interface = 1;
-				static int feitian_static_interface = 0;
-/* 
-	Not sure why the static_interface to let be 1, 
-	but for Feitian R502 dual interface reader, it should be start from 0
-*/
-			
-				/* simulate a composite device as when libudev is used */
+				static int static_interface = 0;
 
-/*Add Feitian R502 in*/
+				/* simulate a composite device as when libudev is used */
 				if ((GEMALTOPROXDU == readerID)
-					|| (GEMALTOPROXSU == readerID) 
+					|| (GEMALTOPROXSU == readerID)
 					|| (FEITIANR502 == readerID))
 				{
 						/*
@@ -432,11 +425,6 @@ status_t OpenUSBByName(unsigned int reader_index, /*@null@*/ char *device)
 
 					/* the CCID interfaces are 1 and 2 */
 					interface_number = static_interface;
-					
-					if (FEITIANR502 == readerID) 
-					{
-						interface_number = feitian_static_interface;
-					}
 				}
 #endif
 				/* is it already opened? */
@@ -579,7 +567,6 @@ again:
 				}
 
 				interface = usb_interface->altsetting->bInterfaceNumber;
-               
 				if (interface_number >= 0 && interface != interface_number)
 				{
 					/* an interface was specified and it is not the
@@ -622,14 +609,10 @@ again:
 #ifdef USE_COMPOSITE_AS_MULTISLOT
 				/* use the next interface for the next "slot" */
 				static_interface++;
-				feitian_static_interface++;
-				
+
 				/* reset for a next reader */
-				if (static_interface > 2 || feitian_static_interface > 2)
-				{
-					static_interface = 1;
-					feitian_static_interface = 1;
-				}
+				if (static_interface >= 2)
+					static_interface = 0;
 #endif
 
 				/* Get Endpoints values*/
@@ -1031,7 +1014,6 @@ static int get_end_points(struct libusb_config_descriptor *desc,
 {
 	const struct libusb_interface *usb_interface = NULL;
 	int i;
- 
 
 	/* if multiple interfaces use the first one with CCID class type */
 	for (i = *num; i < desc->bNumInterfaces; i++)
