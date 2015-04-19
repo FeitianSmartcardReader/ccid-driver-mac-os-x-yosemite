@@ -1,5 +1,3 @@
-# ccid-driver-mac-os-x-yosemite
-
 Installation
 ------------
 
