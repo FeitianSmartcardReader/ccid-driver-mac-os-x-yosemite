@@ -5,7 +5,6 @@ Installation
 
 2. Enter the following commands to unpack the driver source code.
 
-
 3. Enter the following commands to install the driver.
 
 # ./configure
