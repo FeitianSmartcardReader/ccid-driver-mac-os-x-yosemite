@@ -20,8 +20,8 @@ Installation
 # make install
 
 
-Debug smartcard with reader driver:
-Debug CCID driver under yosemite
+Debug smartcard with reader driver -> http://ludovicrousseau.blogspot.ca/2015/03/change-syslog-logging-level-on-yosemite.html & http://ludovicrousseau.blogspot.fr/2015/02/debug-smart-card-application-on-yosemite.html:
+ 
 
 Displaying APDU transfer between reader and card:
 
@@ -37,8 +37,9 @@ $ defaults read /Library/Preferences/com.apple.security.smartcard Logging
 3. Plug in a USB reader
 4. Read logging state again
 
+
 $ defaults read /Library/Preferences/com.apple.security.smartcard Logging
-0
+ 0
 
 
 
