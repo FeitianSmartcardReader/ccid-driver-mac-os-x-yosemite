@@ -1,3 +1,0 @@
-libccid_la-strlcpy.lo: strlcpy.c ../config.h
-
-../config.h:
