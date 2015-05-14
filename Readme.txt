@@ -31,7 +31,7 @@ $ sudo defaults write /Library/Preferences/com.apple.security.smartcard Logging 
 
 2. Read logging state
 $ defaults read /Library/Preferences/com.apple.security.smartcard Logging
-1
+ 1
 
 
 3. Plug in a USB reader
