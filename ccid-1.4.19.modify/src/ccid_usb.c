@@ -610,8 +610,13 @@ again:
 				static_interface++;
 
 				/* reset for a next reader */
-				if (static_interface >= 2)
-					static_interface = 0;
+				if (FEITIANR502DUAL == readerID)
+				{
+					if (static_interface >= 2)	
+						static_interface = 0;
+				}
+				else if (static_interface > 2)
+				static_interface = 1;
 #endif
 
 				/* Get Endpoints values*/
