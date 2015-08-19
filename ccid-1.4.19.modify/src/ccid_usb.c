@@ -400,7 +400,7 @@ status_t OpenUSBByName(unsigned int reader_index, /*@null@*/ char *device)
 				/* simulate a composite device as when libudev is used */
 				if ((GEMALTOPROXDU == readerID)
 					|| (GEMALTOPROXSU == readerID)
-					|| (FEITIANR502 == readerID))
+					|| (FEITIANR502DUAL == readerID))
 				{
 						/*
 						 * We can't talk to the two CCID interfaces
